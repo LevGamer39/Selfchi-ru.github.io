@@ -1766,3 +1766,175 @@ body {
         padding: 1.5rem;
     }
 }
+/* Cosmic Hero - Исправленные стили */
+.cosmic-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 6rem 2rem 2rem;
+}
+
+.hero-orbit {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.orbit-path {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border: 2px dashed rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+}
+
+.satellite {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    animation: satellite-orbit 20s linear infinite;
+    transform-origin: center;
+}
+
+#code-satellite {
+    animation: satellite-orbit 20s linear infinite;
+}
+
+#music-satellite {
+    animation: satellite-orbit 20s linear infinite;
+    animation-delay: -10s;
+}
+
+@keyframes satellite-orbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(300px) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(300px) rotate(-360deg);
+    }
+}
+
+.satellite-content {
+    text-align: center;
+    padding: 2rem;
+    background: var(--cosmic-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 16px;
+    box-shadow: var(--cosmic-glow);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+/* Central Planet - Исправленные стили */
+.central-planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.planet-core {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, #667eea, #764ba2);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    position: relative;
+    box-shadow: 0 0 60px rgba(102, 126, 234, 0.6);
+    animation: planet-pulse 4s ease-in-out infinite;
+}
+
+.planet-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(0, 212, 255, 0.5);
+    border-radius: 50%;
+    animation: ring-rotate linear infinite;
+}
+
+.ring:nth-child(1) {
+    width: 180px;
+    height: 180px;
+    animation-duration: 20s;
+}
+
+.ring:nth-child(2) {
+    width: 240px;
+    height: 240px;
+    animation-duration: 25s;
+    animation-direction: reverse;
+}
+
+.ring:nth-child(3) {
+    width: 300px;
+    height: 300px;
+    animation-duration: 30s;
+}
+
+@keyframes ring-rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Responsive Design - Исправленные медиа-запросы */
+@media (max-width: 768px) {
+    .hero-orbit {
+        width: 300px;
+        height: 300px;
+    }
+
+    .satellite {
+        width: 150px;
+    }
+
+    @keyframes satellite-orbit {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg) translateX(150px) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg) translateX(150px) rotate(-360deg);
+        }
+    }
+
+    .planet-rings {
+        width: 200px;
+        height: 200px;
+    }
+
+    .ring:nth-child(1) {
+        width: 120px;
+        height: 120px;
+    }
+
+    .ring:nth-child(2) {
+        width: 160px;
+        height: 160px;
+    }
+
+    .ring:nth-child(3) {
+        width: 200px;
+        height: 200px;
+    }
+}
