@@ -2745,6 +2745,600 @@ h3 { font-size: 1.5rem; }
         gap: 0.5rem;
     }
 }
+/* Стили для страницы "О себе" */
+
+.about-hero-section {
+    padding: 120px 0 80px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 136, 0.05) 100%);
+    border-bottom: 1px solid var(--cosmic-border);
+}
+
+.about-hero-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-avatar {
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-frame {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    border: 3px solid var(--cosmic-accent);
+    padding: 8px;
+    background: var(--cosmic-card);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-frame::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-neon), var(--cosmic-accent));
+    border-radius: 22px;
+    z-index: -1;
+    animation: rotate 3s linear infinite;
+}
+
+.avatar-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.about-intro h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--cosmic-text);
+}
+
+.about-intro .accent-text {
+    color: var(--cosmic-accent);
+}
+
+.about-intro .subtitle {
+    font-size: 1.4rem;
+    color: var(--cosmic-accent);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.about-intro .description {
+    font-size: 1.1rem;
+    color: var(--cosmic-text-secondary);
+    line-height: 1.6;
+}
+
+/* Основной контент */
+.about-content-section {
+    padding: 80px 0;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-neon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--cosmic-text-secondary);
+}
+
+.essay-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.essay-block {
+    background: var(--cosmic-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--cosmic-border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.essay-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.essay-block:hover::before {
+    left: 100%;
+}
+
+.essay-block:hover {
+    transform: translateY(-5px);
+    border-color: var(--cosmic-accent);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.essay-block h3 {
+    color: var(--cosmic-accent);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.essay-block p {
+    color: var(--cosmic-text);
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-card {
+    background: var(--cosmic-card);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--cosmic-border);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    border-color: var(--cosmic-accent);
+    transform: translateY(-3px);
+}
+
+.info-card h3 {
+    color: var(--cosmic-accent);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Stats */
+.stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--cosmic-border);
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-name {
+    color: var(--cosmic-text-secondary);
+    font-weight: 500;
+}
+
+.stat-value {
+    color: var(--cosmic-accent);
+    font-weight: 600;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Skills Tags */
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: var(--cosmic-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(0, 212, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Music Preferences */
+.music-preferences {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.preference-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.genre {
+    color: var(--cosmic-text);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.preference-bar {
+    height: 6px;
+    background: var(--cosmic-border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.preference-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cosmic-neon), #ff6b6b);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* Contest Info */
+.contest-info {
+    background: rgba(0, 255, 136, 0.05);
+    border-color: rgba(0, 255, 136, 0.3);
+}
+
+.contest-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--cosmic-border);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item strong {
+    color: var(--cosmic-text);
+    font-weight: 600;
+}
+
+.detail-item span {
+    color: var(--cosmic-text-secondary);
+    text-align: right;
+}
+
+/* Quote Section */
+.quote-section {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.inspiration-quote {
+    font-size: 1.5rem;
+    color: var(--cosmic-text);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.quote-section cite {
+    color: var(--cosmic-accent);
+    font-size: 1.1rem;
+    font-style: normal;
+}
+
+/* Анимации */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Адаптивность для About */
+@media (max-width: 968px) {
+    .about-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-intro h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero-section {
+        padding: 100px 0 60px;
+    }
+    
+    .about-content-section {
+        padding: 60px 0;
+    }
+    
+    .essay-block {
+        padding: 2rem;
+    }
+    
+    .info-card {
+        padding: 1.5rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .about-intro h1 {
+        font-size: 2rem;
+    }
+    
+    .about-intro .subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .essay-block {
+        padding: 1.5rem;
+    }
+    
+    .avatar-frame {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .about-intro h1 {
+        font-size: 1.8rem;
+    }
+    
+    .quote-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .inspiration-quote {
+        font-size: 1.3rem;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .detail-item span {
+        text-align: left;
+    }
+}
+/* Дополнительные стили для улучшенной страницы "О себе" */
+
+/* Навигация по странице */
+.page-navigation {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cosmic-text-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem;
+}
+
+.nav-dot::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--cosmic-border);
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.nav-dot span {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.nav-dot:hover,
+.nav-dot.active {
+    color: var(--cosmic-accent);
+}
+
+.nav-dot:hover::before,
+.nav-dot.active::before {
+    background: var(--cosmic-accent);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px var(--cosmic-accent);
+}
+
+/* Иконки для блоков эссе */
+.essay-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.essay-block h3 {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Улучшенные стили для карточек */
+.cta-card {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 136, 0.05));
+    border-color: var(--cosmic-accent);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.cta-btn.small {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    flex: 1;
+    text-align: center;
+}
+
+/* Анимации для появления контента */
+.essay-block,
+.info-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.essay-block:nth-child(1) { animation-delay: 0.1s; }
+.essay-block:nth-child(2) { animation-delay: 0.2s; }
+.essay-block:nth-child(3) { animation-delay: 0.3s; }
+.essay-block:nth-child(4) { animation-delay: 0.4s; }
+
+.info-card:nth-child(1) { animation-delay: 0.1s; }
+.info-card:nth-child(2) { animation-delay: 0.2s; }
+.info-card:nth-child(3) { animation-delay: 0.3s; }
+.info-card:nth-child(4) { animation-delay: 0.4s; }
+.info-card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ховер-эффекты для статистики */
+.stat-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-item:hover {
+    background: rgba(0, 212, 255, 0.05);
+    border-radius: 8px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+/* Улучшенные теги навыков */
+.skill-tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.skill-tag:hover::before {
+    left: 100%;
+}
+
+/* Адаптивность для навигации по странице */
+@media (max-width: 768px) {
+    .page-navigation {
+        gap: 0.5rem;
+    }
+    
+    .nav-dot {
+        padding: 0.3rem;
+    }
+    
+    .nav-dot span {
+        font-size: 0.7rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-dot {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+    
+    .nav-dot::before {
+        margin-bottom: 0;
+    }
+}
 
 
 
