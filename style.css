@@ -1687,3 +1687,411 @@ h3 { font-size: 1.5rem; }
         --cosmic-text-secondary: #a0aec0;
     }
 }
+/* Portfolio Styles */
+.portfolio-hero {
+    padding: 120px 0 60px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 136, 0.05) 100%);
+    border-bottom: 1px solid var(--cosmic-border);
+}
+
+.portfolio-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.portfolio-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-neon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.portfolio-subtitle {
+    font-size: 1.3rem;
+    color: var(--cosmic-text-secondary);
+    margin-bottom: 3rem;
+}
+
+.portfolio-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--cosmic-accent);
+    margin-bottom: 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.stat-label {
+    color: var(--cosmic-text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    padding: 80px 0;
+}
+
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 25px;
+    color: var(--cosmic-text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.filter-btn:hover {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--cosmic-text);
+    border-color: var(--cosmic-accent);
+}
+
+.filter-btn.active {
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--cosmic-accent);
+    border-color: var(--cosmic-accent);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.project-card {
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--cosmic-accent);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+}
+
+.project-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--cosmic-accent);
+    color: var(--cosmic-dark);
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-content h3 {
+    color: var(--cosmic-text);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.project-content p {
+    color: var(--cosmic-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: var(--cosmic-accent);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 8px;
+    color: var(--cosmic-accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.project-link:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--cosmic-accent);
+    transform: translateY(-2px);
+}
+
+.audio-link {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: rgba(0, 255, 136, 0.3);
+    color: var(--cosmic-neon);
+}
+
+.audio-link:hover {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: var(--cosmic-neon);
+}
+
+/* Audio Players */
+.audio-player {
+    margin: 1.5rem 0;
+}
+
+.audio-placeholder {
+    padding: 1.5rem;
+    background: rgba(0, 212, 255, 0.05);
+    border: 2px dashed var(--cosmic-border);
+    border-radius: 12px;
+    text-align: center;
+    color: var(--cosmic-text-secondary);
+}
+
+.audio-placeholder.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+/* Playlist */
+.playlist {
+    margin: 1.5rem 0;
+    border: 1px solid var(--cosmic-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.playlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--cosmic-border);
+    transition: background-color 0.3s ease;
+}
+
+.playlist-item:last-child {
+    border-bottom: none;
+}
+
+.playlist-item:hover {
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.track-number {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--cosmic-accent);
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.track-title {
+    color: var(--cosmic-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Project Features */
+.project-features {
+    margin: 1.5rem 0;
+}
+
+.project-features h4 {
+    color: var(--cosmic-accent);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.project-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-features li {
+    color: var(--cosmic-text-secondary);
+    padding: 0.3rem 0;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.project-features li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--cosmic-accent);
+    font-weight: bold;
+}
+
+/* CTA Section */
+.portfolio-cta {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
+.portfolio-cta h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-neon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.portfolio-cta p {
+    font-size: 1.2rem;
+    color: var(--cosmic-text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .portfolio-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .portfolio-stats {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+        max-width: 100%;
+    }
+    
+    .portfolio-filters {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .project-content {
+        padding: 1.5rem;
+    }
+    
+    .portfolio-cta {
+        padding: 3rem 1.5rem;
+    }
+    
+    .portfolio-cta h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-header h1 {
+        font-size: 2rem;
+    }
+    
+    .portfolio-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .playlist-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
