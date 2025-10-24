@@ -4127,6 +4127,136 @@ h3 { font-size: 1.5rem; }
     }
 }
 
+/* Стили для мобильной навигации */
+.cosmic-nav {
+    transition: transform 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.cosmic-nav.nav-hidden {
+    transform: translateY(-100%);
+    backdrop-filter: blur(0px);
+}
+
+/* Улучшенная мобильная навигация */
+@media (max-width: 768px) {
+    .cosmic-nav {
+        padding: 0.8rem 0;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-logo {
+        font-size: 1rem;
+    }
+    
+    .nav-links {
+        gap: 0.5rem;
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .theme-toggle {
+        padding: 0.4rem;
+        font-size: 1rem;
+    }
+    
+    /* Бургер-меню для очень маленьких экранов */
+    @media (max-width: 480px) {
+        .nav-links {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--cosmic-card);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--cosmic-border);
+            flex-direction: column;
+            padding: 1rem;
+            gap: 0;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .nav-links.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .nav-link {
+            padding: 1rem;
+            border-radius: 0;
+            border-bottom: 1px solid var(--cosmic-border);
+            text-align: center;
+        }
+        
+        .nav-link:last-child {
+            border-bottom: none;
+        }
+        
+        /* Кнопка бургер-меню */
+        .nav-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .nav-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: var(--cosmic-text);
+            transition: all 0.3s ease;
+            border-radius: 1px;
+        }
+        
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+    }
+}
+
+/* Плавное появление/исчезновение для всех состояний навигации */
+.nav-container {
+    transition: all 0.3s ease;
+}
+
+/* Улучшенная видимость на мобильных */
+@media (max-width: 768px) {
+    .cosmic-nav {
+        background: rgba(10, 10, 26, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+}
+
+/* Предотвращение мерцания при скролле на iOS */
+@media (max-width: 768px) {
+    .cosmic-nav {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
 
 
 
