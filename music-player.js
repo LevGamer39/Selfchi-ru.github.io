@@ -1,4 +1,21 @@
-// Продвинутый музыкальный плеер и интерактивная гитара
+// ГЏГ°Г®Г¤ГўГЁГ­ГіГІГ»Г© Г¬ГіГ§Г»ГЄГ Г«ГјГ­Г»Г© ГЇГ«ГҐГҐГ° ГЁ ГЁГ­ГІГҐГ°Г ГЄГІГЁГўГ­Г Гї ГЈГЁГІГ Г°Г 
+function initAudioPlayers() {
+    const audioPlayers = document.querySelectorAll('audio');
+    audioPlayers.forEach(audio => {
+        audio.controls = true;
+        audio.preload = 'metadata';
+        
+        // Р”РѕР±Р°РІР»СЏРµРј РѕР±СЂР°Р±РѕС‚С‡РёРє РґР»СЏ СѓРїСЂР°РІР»РµРЅРёСЏ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµРј
+        audio.addEventListener('play', function() {
+            audioManager.playAudio(this);
+        });
+        
+        // Р”РѕР±Р°РІР»СЏРµРј РѕР±СЂР°Р±РѕС‚С‡РёРє РѕРєРѕРЅС‡Р°РЅРёСЏ С‚СЂРµРєР°
+        audio.addEventListener('ended', function() {
+            audioManager.currentPlaying = null;
+        });
+    });
+}
 class CosmicMusicPlayer {
     constructor() {
         this.audioContext = null;
@@ -18,18 +35,18 @@ class CosmicMusicPlayer {
         this.preloadAudio();
     }
 
-    // Инициализация Audio Context
+    // Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї Audio Context
     initAudioContext() {
         try {
             this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
             this.analyser = this.audioContext.createAnalyser();
             this.analyser.fftSize = 256;
         } catch (e) {
-            console.warn('Web Audio API не поддерживается:', e);
+            console.warn('Web Audio API Г­ГҐ ГЇГ®Г¤Г¤ГҐГ°Г¦ГЁГўГ ГҐГІГ±Гї:', e);
         }
     }
 
-    // Инициализация интерактивной гитары
+    // Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї ГЁГ­ГІГҐГ°Г ГЄГІГЁГўГ­Г®Г© ГЈГЁГІГ Г°Г»
     initGuitar() {
         this.guitarStrings = Array.from(document.querySelectorAll('.guitar-string'));
         
@@ -37,7 +54,7 @@ class CosmicMusicPlayer {
             const stringLine = string.querySelector('.string-line');
             const frets = string.querySelectorAll('.fret');
             
-            // Анимация струны при наведении
+            // ГЂГ­ГЁГ¬Г Г¶ГЁГї Г±ГІГ°ГіГ­Г» ГЇГ°ГЁ Г­Г ГўГҐГ¤ГҐГ­ГЁГЁ
             stringLine.addEventListener('mouseenter', () => {
                 stringLine.style.transform = 'scaleY(1.5)';
                 stringLine.style.background = 'var(--cosmic-neon)';
@@ -49,7 +66,7 @@ class CosmicMusicPlayer {
                 stringLine.style.background = 'linear-gradient(90deg, transparent, #e2e8f0, transparent)';
             });
             
-            // Клик по ладам
+            // ГЉГ«ГЁГЄ ГЇГ® Г«Г Г¤Г Г¬
             frets.forEach(fret => {
                 fret.addEventListener('click', () => {
                     const fretNumber = parseInt(fret.dataset.fret);
@@ -63,12 +80,12 @@ class CosmicMusicPlayer {
         });
     }
 
-    // Расчет частоты ноты на ладу
+    // ГђГ Г±Г·ГҐГІ Г·Г Г±ГІГ®ГІГ» Г­Г®ГІГ» Г­Г  Г«Г Г¤Гі
     calculateFretFrequency(baseFrequency, fret) {
         return baseFrequency * Math.pow(2, fret / 12);
     }
 
-    // Воспроизведение звука струны
+    // Г‚Г®Г±ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГҐ Г§ГўГіГЄГ  Г±ГІГ°ГіГ­Г»
     playStringSound(frequency) {
         if (!this.audioContext) return;
         
@@ -81,7 +98,7 @@ class CosmicMusicPlayer {
         oscillator.type = 'sine';
         oscillator.frequency.value = frequency;
         
-        // Плавное нарастание и затухание
+        // ГЏГ«Г ГўГ­Г®ГҐ Г­Г Г°Г Г±ГІГ Г­ГЁГҐ ГЁ Г§Г ГІГіГµГ Г­ГЁГҐ
         gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
         gainNode.gain.linearRampToValueAtTime(0.1, this.audioContext.currentTime + 0.1);
         gainNode.gain.linearRampToValueAtTime(0, this.audioContext.currentTime + 1);
@@ -89,11 +106,11 @@ class CosmicMusicPlayer {
         oscillator.start(this.audioContext.currentTime);
         oscillator.stop(this.audioContext.currentTime + 1);
         
-        // Визуальный эффект
+        // Г‚ГЁГ§ГіГ Г«ГјГ­Г»Г© ГЅГґГґГҐГЄГІ
         this.createStringWaveEffect(frequency);
     }
 
-    // Создание визуального эффекта волны на струне
+    // Г‘Г®Г§Г¤Г Г­ГЁГҐ ГўГЁГ§ГіГ Г«ГјГ­Г®ГЈГ® ГЅГґГґГҐГЄГІГ  ГўГ®Г«Г­Г» Г­Г  Г±ГІГ°ГіГ­ГҐ
     createStringWaveEffect(frequency) {
         const stringLines = document.querySelectorAll('.string-line');
         stringLines.forEach(line => {
@@ -104,7 +121,7 @@ class CosmicMusicPlayer {
         });
     }
 
-    // Эффект при нажатии на лад
+    // ГќГґГґГҐГЄГІ ГЇГ°ГЁ Г­Г Г¦Г ГІГЁГЁ Г­Г  Г«Г Г¤
     createFretEffect(fret) {
         fret.style.background = 'var(--cosmic-neon)';
         fret.style.boxShadow = '0 0 20px var(--cosmic-neon)';
@@ -115,7 +132,7 @@ class CosmicMusicPlayer {
         }, 300);
     }
 
-    // Инициализация визуализатора
+    // Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї ГўГЁГ§ГіГ Г«ГЁГ§Г ГІГ®Г°Г 
     initVisualizer() {
         const canvas = document.getElementById('audioVisualizer');
         if (!canvas) return;
@@ -127,7 +144,7 @@ class CosmicMusicPlayer {
         this.drawVisualizer();
     }
 
-    // Отрисовка визуализатора
+    // ГЋГІГ°ГЁГ±Г®ГўГЄГ  ГўГЁГ§ГіГ Г«ГЁГ§Г ГІГ®Г°Г 
     drawVisualizer() {
         if (!this.analyser || !this.visualizer) return;
         
@@ -164,17 +181,17 @@ class CosmicMusicPlayer {
         draw();
     }
 
-    // Предзагрузка аудио
+    // ГЏГ°ГҐГ¤Г§Г ГЈГ°ГіГ§ГЄГ  Г ГіГ¤ГЁГ®
     preloadAudio() {
         const audioElements = document.querySelectorAll('audio');
         audioElements.forEach(audio => {
             audio.addEventListener('canplaythrough', () => {
-                console.log(`Аудио ${audio.src} готово к воспроизведению`);
+                console.log(`ГЂГіГ¤ГЁГ® ${audio.src} ГЈГ®ГІГ®ГўГ® ГЄ ГўГ®Г±ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГѕ`);
             });
         });
     }
 
-    // Воспроизведение случайной мелодии
+    // Г‚Г®Г±ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГҐ Г±Г«ГіГ·Г Г©Г­Г®Г© Г¬ГҐГ«Г®Г¤ГЁГЁ
     playRandomMelody() {
         const notes = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88];
         let currentTime = this.audioContext.currentTime;
@@ -189,7 +206,7 @@ class CosmicMusicPlayer {
         }
     }
 
-    // Воспроизведение аккорда
+    // Г‚Г®Г±ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГҐ Г ГЄГЄГ®Г°Г¤Г 
     playChord() {
         const chords = {
             'E_minor': [82.41, 110.00, 146.83, 196.00, 246.94, 329.63],
@@ -208,10 +225,10 @@ class CosmicMusicPlayer {
         this.showChordName(randomChord);
     }
 
-    // Показать название аккорда
+    // ГЏГ®ГЄГ Г§Г ГІГј Г­Г Г§ГўГ Г­ГЁГҐ Г ГЄГЄГ®Г°Г¤Г 
     showChordName(chordName) {
         const notification = document.createElement('div');
-        notification.textContent = `Аккорд: ${chordName}`;
+        notification.textContent = `ГЂГЄГЄГ®Г°Г¤: ${chordName}`;
         notification.style.cssText = `
             position: absolute;
             top: 50%;
@@ -236,9 +253,9 @@ class CosmicMusicPlayer {
         }, 2000);
     }
 
-    // Привязка событий
+    // ГЏГ°ГЁГўГїГ§ГЄГ  Г±Г®ГЎГ»ГІГЁГ©
     bindEvents() {
-        // Кнопка воспроизведения аккорда
+        // ГЉГ­Г®ГЇГЄГ  ГўГ®Г±ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГї Г ГЄГЄГ®Г°Г¤Г 
         const playChordBtn = document.getElementById('playChord');
         if (playChordBtn) {
             playChordBtn.addEventListener('click', () => {
@@ -246,7 +263,7 @@ class CosmicMusicPlayer {
             });
         }
         
-        // Кнопка случайной мелодии
+        // ГЉГ­Г®ГЇГЄГ  Г±Г«ГіГ·Г Г©Г­Г®Г© Г¬ГҐГ«Г®Г¤ГЁГЁ
         const randomMelodyBtn = document.getElementById('randomMelody');
         if (randomMelodyBtn) {
             randomMelodyBtn.addEventListener('click', () => {
@@ -254,7 +271,7 @@ class CosmicMusicPlayer {
             });
         }
         
-        // Слайдер громкости
+        // Г‘Г«Г Г©Г¤ГҐГ° ГЈГ°Г®Г¬ГЄГ®Г±ГІГЁ
         const volumeSlider = document.getElementById('volumeSlider');
         if (volumeSlider) {
             volumeSlider.addEventListener('input', (e) => {
@@ -262,7 +279,7 @@ class CosmicMusicPlayer {
             });
         }
         
-        // Глобальное управление аудио
+        // ГѓГ«Г®ГЎГ Г«ГјГ­Г®ГҐ ГіГЇГ°Г ГўГ«ГҐГ­ГЁГҐ Г ГіГ¤ГЁГ®
         document.addEventListener('click', (e) => {
             if (e.target.tagName === 'AUDIO') {
                 this.handleAudioPlay(e.target);
@@ -270,7 +287,7 @@ class CosmicMusicPlayer {
         });
     }
 
-    // Установка громкости
+    // Г“Г±ГІГ Г­Г®ГўГЄГ  ГЈГ°Г®Г¬ГЄГ®Г±ГІГЁ
     setVolume(volume) {
         const audioElements = document.querySelectorAll('audio');
         audioElements.forEach(audio => {
@@ -278,13 +295,13 @@ class CosmicMusicPlayer {
         });
     }
 
-    // Обработка воспроизведения аудио
+    // ГЋГЎГ°Г ГЎГ®ГІГЄГ  ГўГ®Г±ГЇГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГї Г ГіГ¤ГЁГ®
     handleAudioPlay(audioElement) {
         if (this.audioContext && this.audioContext.state === 'suspended') {
             this.audioContext.resume();
         }
         
-        // Подключение к визуализатору
+        // ГЏГ®Г¤ГЄГ«ГѕГ·ГҐГ­ГЁГҐ ГЄ ГўГЁГ§ГіГ Г«ГЁГ§Г ГІГ®Г°Гі
         if (this.analyser) {
             const source = this.audioContext.createMediaElementSource(audioElement);
             source.connect(this.analyser);
@@ -293,7 +310,7 @@ class CosmicMusicPlayer {
     }
 }
 
-// Стили для анимаций гитары
+// Г‘ГІГЁГ«ГЁ Г¤Г«Гї Г Г­ГЁГ¬Г Г¶ГЁГ© ГЈГЁГІГ Г°Г»
 const guitarStyles = document.createElement('style');
 guitarStyles.textContent = `
     @keyframes stringWave {
@@ -312,10 +329,11 @@ guitarStyles.textContent = `
 `;
 document.head.appendChild(guitarStyles);
 
-// Инициализация музыкального плеера
+// Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї Г¬ГіГ§Г»ГЄГ Г«ГјГ­Г®ГЈГ® ГЇГ«ГҐГҐГ°Г 
 document.addEventListener('DOMContentLoaded', function() {
     const musicPlayer = new CosmicMusicPlayer();
     
-    // Добавление глобальных методов
+    // Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЈГ«Г®ГЎГ Г«ГјГ­Г»Гµ Г¬ГҐГІГ®Г¤Г®Гў
     window.musicPlayer = musicPlayer;
+
 });
