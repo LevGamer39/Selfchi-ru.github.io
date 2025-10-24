@@ -36,7 +36,7 @@
     </nav>
 
     <!-- Герой секция about -->
-    <section class="about-hero">
+    <section class="about-hero-section">
         <div class="container">
             <div class="about-hero-content">
                 <div class="about-avatar">
@@ -45,41 +45,59 @@
                     </div>
                 </div>
                 <div class="about-intro">
-                    <h1>Глумов Александр<span class="accent">
+                    <h1>Глумов Александр<span class="accent-text">
                     <p class="subtitle">Разработчик & Музыкант</p>
                     <p class="description">
                         Ученик 9"И" инженерно-космического класса<br>
                         МАОУ Гимназии №32 г. Калининграда
                     </p>
+                    
+                    <!-- Навигация по странице -->
+                    <div class="page-navigation">
+                        <a href="#story" class="nav-dot active" data-section="story">
+                            <span>История</span>
+                        </a>
+                        <a href="#stats" class="nav-dot" data-section="stats">
+                            <span>Статистика</span>
+                        </a>
+                        <a href="#skills" class="nav-dot" data-section="skills">
+                            <span>Навыки</span>
+                        </a>
+                        <a href="#contest" class="nav-dot" data-section="contest">
+                            <span>Конкурс</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Основной контент -->
-    <section class="about-content">
+    <section class="about-content-section">
         <div class="container">
             <div class="content-grid">
                 <!-- Основное эссе -->
-                <div class="essay-section">
+                <div class="essay-section" id="story">
                     <div class="section-header">
                         <h2>Моя история</h2>
-                        <p>Эссе о моём пути в программировании и музыке</p>
+                        <p>Путь в программировании и музыке</p>
                     </div>
 
                     <div class="essay-content">
                         <div class="essay-block">
-                            <h3>🎯 Начало пути</h3>
+                            <div class="essay-icon">🎯</div>
+                            <h3>Начало пути</h3>
                             <p>
                                 Всё началось 2 года назад с простого интереса к технологиям. 
                                 Я начал изучать Python и был поражён тем, как несколько строк кода 
-                                могут решать сложные задачи. Сейчас я создаю Telegram ботов, 
+                                могут решать сложные задачи. Сейчас я создаю Telegram боты, 
                                 игры на Unity и изучаю Go для backend-разработки.
                             </p>
                         </div>
 
                         <div class="essay-block">
-                            <h3>🎸 Музыкальная сторона</h3>
+                            <div class="essay-icon">🎸</div>
+                            <h3>Музыкальная сторона</h3>
                             <p>
                                 Параллельно с программированием я открыл для себя мир музыки. 
                                 Прогрессивный рок и математический рок стали моими любимыми жанрами. 
@@ -89,7 +107,8 @@
                         </div>
 
                         <div class="essay-block">
-                            <h3>🚀 Инженерно-космический класс</h3>
+                            <div class="essay-icon">🚀</div>
+                            <h3>Инженерно-космический класс</h3>
                             <p>
                                 Учёба в инженерно-космическом классе помогает мне развивать 
                                 техническое мышление, которое пригодится как в IT, так и в музыке. 
@@ -99,7 +118,8 @@
                         </div>
 
                         <div class="essay-block">
-                            <h3>💡 Связь технологий и творчества</h3>
+                            <div class="essay-icon">💡</div>
+                            <h3>Связь технологий и творчества</h3>
                             <p>
                                 Многие не видят связи между программированием и музыкой, но для меня 
                                 они очень похожи. Обе области требуют креативности, дисциплины и 
@@ -112,7 +132,7 @@
                 <!-- Боковая панель с информацией -->
                 <div class="sidebar">
                     <!-- Статистика -->
-                    <div class="info-card">
+                    <div class="info-card" id="stats">
                         <h3>📊 Моя статистика</h3>
                         <div class="stats-list">
                             <div class="stat-item">
@@ -121,7 +141,7 @@
                             </div>
                             <div class="stat-item">
                                 <span class="stat-name">Завершённых проектов</span>
-                                <span class="stat-value">10+</span>
+                                <span class="stat-value">15+</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-name">Музыкальных треков</span>
@@ -129,13 +149,17 @@
                             </div>
                             <div class="stat-item">
                                 <span class="stat-name">Изучаемых технологий</span>
-                                <span class="stat-value">5+</span>
+                                <span class="stat-value">7+</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-name">Часов за гитарой</span>
+                                <span class="stat-value">2000+</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Навыки -->
-                    <div class="info-card">
+                    <div class="info-card" id="skills">
                         <h3>🛠 Технологии</h3>
                         <div class="skills-tags">
                             <span class="skill-tag">Python</span>
@@ -145,6 +169,8 @@
                             <span class="skill-tag">Telegram API</span>
                             <span class="skill-tag">HTML/CSS</span>
                             <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">SQLite</span>
+                            <span class="skill-tag">Git</span>
                         </div>
                     </div>
 
@@ -180,7 +206,7 @@
                     </div>
 
                     <!-- Информация о конкурсе -->
-                    <div class="info-card contest-info">
+                    <div class="info-card contest-info" id="contest">
                         <h3>🏆 О конкурсе</h3>
                         <div class="contest-details">
                             <div class="detail-item">
@@ -201,20 +227,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Цитата -->
-            <div class="quote-section">
-                <blockquote class="inspiration-quote">
-                    "Код — это поэзия для машин, музыка — поэзия для души. 
-                    В обоих ищу гармонию и совершенство."
-                </blockquote>
-                <cite>— Polysok / Yuaself</cite>
-            </div>
-        </div>
-    </section>
-
+                    
     <!-- Футер -->
     <footer class="cosmic-footer">
         <div class="container">
@@ -251,9 +264,63 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Навигация по странице "О себе"
+        document.addEventListener('DOMContentLoaded', function() {
+            const navDots = document.querySelectorAll('.nav-dot');
+            const sections = {
+                story: document.getElementById('story'),
+                stats: document.getElementById('stats'),
+                skills: document.getElementById('skills'),
+                contest: document.getElementById('contest')
+            };
+
+            // Плавная прокрутка к секциям
+            navDots.forEach(dot => {
+                dot.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.dataset.section;
+                    const targetSection = sections[sectionId];
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+
+                        // Обновление активной точки навигации
+                        navDots.forEach(d => d.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // Определение активной секции при скролле
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        navDots.forEach(dot => {
+                            dot.classList.remove('active');
+                            if (dot.dataset.section === id) {
+                                dot.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Наблюдаем за всеми секциями
+            Object.values(sections).forEach(section => {
+                if (section) observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
