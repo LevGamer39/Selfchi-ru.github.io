@@ -1,5 +1,6 @@
 /* Cosmic Theme Styles */
 :root {
+    
     --cosmic-primary: #6b46c1;
     --cosmic-secondary: #3182ce;
     --cosmic-accent: #00d4ff;
@@ -24,6 +25,10 @@
 
 /* Reset and Base Styles */
 * {
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    user-select: none; 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -2717,3 +2722,4 @@ h3 { font-size: 1.5rem; }
         gap: 0.5rem;
     }
 }
+
