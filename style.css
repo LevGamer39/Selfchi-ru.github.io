@@ -4258,6 +4258,74 @@ h3 { font-size: 1.5rem; }
     }
 }
 
+/* Исправления для светлой темы в навигации */
+[data-theme="light"] .cosmic-nav {
+    background: rgba(240, 244, 248, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+[data-theme="light"] .nav-link {
+    color: #2d3748;
+}
+
+[data-theme="light"] .nav-link:hover,
+[data-theme="light"] .nav-link.active {
+    color: var(--cosmic-accent);
+    background: rgba(0, 212, 255, 0.1);
+}
+
+[data-theme="light"] .nav-link::after {
+    background: var(--cosmic-accent);
+}
+
+[data-theme="light"] .theme-toggle {
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    color: #2d3748;
+}
+
+[data-theme="light"] .theme-toggle:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--cosmic-accent);
+}
+
+/* Исправления для мобильного меню в светлой теме */
+@media (max-width: 480px) {
+    [data-theme="light"] .nav-links {
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+    }
+    
+    [data-theme="light"] .nav-link {
+        border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+        color: #2d3748;
+    }
+    
+    [data-theme="light"] .nav-toggle span {
+        background: #2d3748;
+    }
+}
+
+/* Убедимся, что скрытие навигации работает в обеих темах */
+.cosmic-nav.nav-hidden {
+    transform: translateY(-100%);
+    backdrop-filter: blur(0px);
+}
+
+/* Сохраняем прозрачность при скролле для обеих тем */
+@media (max-width: 768px) {
+    .cosmic-nav {
+        background: rgba(10, 10, 26, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    [data-theme="light"] .cosmic-nav {
+        background: rgba(240, 244, 248, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+}
 
 
 
