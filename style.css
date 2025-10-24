@@ -6,6 +6,7 @@
     justify-content: center;
     position: relative;
     padding: 6rem 2rem 2rem;
+    overflow: hidden;
 }
 
 .hero-orbit {
@@ -94,6 +95,17 @@
     animation: planet-pulse 4s ease-in-out infinite;
 }
 
+@keyframes planet-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 60px rgba(102, 126, 234, 0.6);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 80px rgba(102, 126, 234, 0.8);
+    }
+}
+
 .planet-rings {
     position: absolute;
     top: 50%;
@@ -137,8 +149,65 @@
     to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* Hero Content Styling */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-cta {
+    display: inline-flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-outline {
+    border: 2px solid #667eea;
+    color: #667eea;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
 /* Responsive Design - Исправленные медиа-запросы */
 @media (max-width: 768px) {
+    .cosmic-hero {
+        padding: 4rem 1rem 2rem;
+    }
+    
     .hero-orbit {
         width: 300px;
         height: 300px;
@@ -161,6 +230,7 @@
 
     .satellite-content {
         padding: 1rem;
+        font-size: 0.9rem;
     }
 
     .planet-rings {
@@ -182,11 +252,24 @@
         width: 200px;
         height: 200px;
     }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 480px) {
     .cosmic-hero {
-        padding: 8rem 1rem 2rem;
+        padding: 3rem 1rem 2rem;
     }
 
     .hero-orbit {
@@ -208,4 +291,48 @@
             transform: rotate(360deg) translateX(140px) rotate(-360deg);
         }
     }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .planet-core {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Cosmic Background Effects */
+.cosmic-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(ellipse at center, #0f1b3a 0%, #000000 70%);
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+        radial-gradient(1px 1px at 90px 40px, #ddd, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: stars-move 100s linear infinite;
+}
+
+@keyframes stars-move {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
 }
