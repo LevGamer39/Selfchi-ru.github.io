@@ -39,6 +39,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    user-drag: none;
 }
 
 body {
@@ -2741,6 +2745,7 @@ h3 { font-size: 1.5rem; }
         gap: 0.5rem;
     }
 }
+
 
 
 
