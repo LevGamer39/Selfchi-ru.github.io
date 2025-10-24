@@ -163,9 +163,7 @@ class CosmicEffects {
             this.updateParallax(e);
         });
         
-        // Клик для создания волн
-        document.addEventListener('click', (e) => {
-            this.createRippleEffect(e);
+
         });
     }
 
@@ -481,3 +479,4 @@ window.addEventListener('load', function() {
         }
     }, 1000);
 });
+
