@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,6 @@
     <div id="cosmic-background">
         <div class="stars"></div>
         <div class="twinkling"></div>
-        <div class="planets">
-            <div class="planet" id="planet-4"></div>
-            <div class="planet" id="planet-5"></div>
-        </div>
     </div>
 
     <!-- Навигация -->
@@ -39,34 +35,50 @@
         </div>
     </nav>
 
+    <!-- Герой секция портфолио -->
+    <section class="portfolio-hero">
+        <div class="container">
+            <div class="portfolio-header">
+                <h1>Мои проекты</h1>
+                <p class="portfolio-subtitle">Работы в программировании и музыке</p>
+                
+                <!-- Статистика -->
+                <div class="portfolio-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">проектов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">года опыта</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">технологий</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Портфолио -->
     <section class="portfolio-section">
         <div class="container">
-            <div class="portfolio-header">
-                <h1 class="cosmic-title">Космические проекты</h1>
-                <p class="portfolio-subtitle">Мои работы в программировании и музыке</p>
-                
-                <!-- Фильтры -->
-                <div class="portfolio-filters">
-                    <button class="filter-btn active" data-filter="all">Все проекты</button>
-                    <button class="filter-btn" data-filter="code">💻 Разработка</button>
-                    <button class="filter-btn" data-filter="music">🎸 Музыка</button>
-                    <button class="filter-btn" data-filter="game">🎮 Игры</button>
-                </div>
+            <!-- Фильтры -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Все работы</button>
+                <button class="filter-btn" data-filter="development">💻 Разработка</button>
+                <button class="filter-btn" data-filter="music">🎸 Музыка</button>
+                <button class="filter-btn" data-filter="games">🎮 Игры</button>
             </div>
 
             <!-- Сетка проектов -->
             <div class="projects-grid">
                 <!-- Проект 1: Telegram боты -->
-                <div class="project-card" data-category="code">
+                <div class="project-card" data-category="development">
                     <div class="project-image">
+                        <div class="project-badge">Python</div>
                         <img src="images/project1.jpg" alt="Telegram боты" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTFhIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VGVsZWdyYW0gQm90czwvdGV4dD48L3N2Zz4='">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <button class="project-btn view-demo" data-project="telegram">Демо</button>
-                                <button class="project-btn view-code" data-project="telegram">Код</button>
-                            </div>
-                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Telegram боты</h3>
@@ -75,31 +87,25 @@
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Telegram API</span>
                             <span class="tech-tag">SQLite</span>
-                            <span class="tech-tag">Aiogram</span>
                         </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <span class="stat-number">5+</span>
-                                <span class="stat-label">ботов создано</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">1000+</span>
-                                <span class="stat-label">пользователей</span>
-                            </div>
+                        <div class="project-links">
+                            <a href="https://github.com/polysock/telegram-bots" class="project-link" target="_blank">
+                                <span>Код</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Проект 2: Игры на Unity -->
-                <div class="project-card" data-category="code game">
+                <div class="project-card" data-category="development games">
                     <div class="project-image">
+                        <div class="project-badge">Unity</div>
                         <img src="images/project2.jpg" alt="Игры на Unity" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTFhIi8+PHBhdGggZD0iTTEwMCAxNTBMMjAwIDUwTDMwMCAxNTBMMjAwIDI1MFoiIGZpbGw9IiMwMGI1ZmYiLz48dGV4dCB4PSI1MCUiIHk9Ijc1JSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Vbml0eSBHYW1lczwvdGV4dD48L3N2Zz4='">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <button class="project-btn view-demo" data-project="unity">Демо</button>
-                                <button class="project-btn view-code" data-project="unity">Код</button>
-                            </div>
-                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Игры на Unity</h3>
@@ -108,63 +114,75 @@
                             <span class="tech-tag">C#</span>
                             <span class="tech-tag">Unity</span>
                             <span class="tech-tag">OOP</span>
-                            <span class="tech-tag">Game Design</span>
                         </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <span class="stat-number">3</span>
-                                <span class="stat-label">игры</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">2D/3D</span>
-                                <span class="stat-label">графика</span>
-                            </div>
+                        <div class="project-links">
+                            <a href="https://github.com/polysock/unity-games" class="project-link" target="_blank">
+                                <span>Код</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Проект 3: Go приложения -->
-                <div class="project-card" data-category="code">
+                <div class="project-card" data-category="development">
                     <div class="project-image">
-                        <img src="images/project3.jpg" alt="Go приложения" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTFhIi8+PHBhdGggZD0iTTE1MCAxMDBMMjUwIDEwMEwyNTAgMjAwTDE1MCAyMDBaIiBmaWxsPSIjMDBhZGNkIi8+PHBhdGggZD0iTTE1MCAxMDBMMjAwIDUwTDI1MCAxMDBMMjAwIDE1MFoiIGZpbGw9IiNmZmQiLz48dGV4dCB4PSI1MCUiIHk9Ijc1JSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HbyBBcHBzPC90ZXh0Pjwvc3ZnPg==
-                
-                <!-- Проект 4: Последняя музыкальная демка -->
+                        <div class="project-badge">Go</div>
+                        <img src="images/project3.jpg" alt="Go приложения" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTFhIi8+PHBhdGggZD0iTTE1MCAxMDBMMjUwIDEwMEwyNTAgMjAwTDE1MCAyMDBaIiBmaWxsPSIjMDBhZGNkIi8+PHBhdGggZD0iTTE1MCAxMDBMMjAwIDUwTDI1MCAxMDBMMjAwIDE1MFoiIGZpbGw9IiNmZmQiLz48dGV4dCB4PSI1MCUiIHk9Ijc1JSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HbyBBcHBzPC90ZXh0Pjwvc3ZnPg==';">
+                    </div>
+                    <div class="project-content">
+                        <h3>Go приложения</h3>
+                        <p>Изучение и разработка на Go для создания высокопроизводительных приложений и backend-систем</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Go</span>
+                            <span class="tech-tag">Backend</span>
+                            <span class="tech-tag">Concurrency</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/polysock/go-apps" class="project-link" target="_blank">
+                                <span>Код</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 4: Последняя демка -->
                 <div class="project-card" data-category="music">
                     <div class="project-image">
+                        <div class="project-badge">Музыка</div>
                         <img src="images/demo-cover.jpg" alt="Последняя демка" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTFhIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI4MCIgZmlsbD0iIzAwZDRmZiIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNDAiIGZpbGw9IiNmZmYiLz48dGV4dCB4PSI1MCUiIHk9Ijc1JSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5EZW1vIFRyYWNrPC90ZXh0Pjwvc3ZnPg==';">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <button class="project-btn listen-now" data-project="demo">Слушать</button>
-                                <button class="project-btn download" data-project="demo">Скачать</button>
-                            </div>
-                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Космическая демка #5</h3>
-                        <p>Одна из моих последних демонстрационных инструментальных композиций</p>
+                        <p>Инструментальная композиция в стиле прогрессивного рока с элементами математического рока</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Электрогитара</span>                            
+                            <span class="tech-tag">Электрогитара</span>
+                            <span class="tech-tag">Прогрессивный рок</span>
                             <span class="tech-tag">Собственная композиция</span>
                         </div>
                         <div class="audio-player">
-                            <audio controls style="width: 100%; margin-top: 15px;">
-                                <source src="audio/last-demo.mp3" type="audio/mpeg">
-                                Ваш браузер не поддерживает аудио элемент.
-                            </audio>
+                            <div class="audio-placeholder">
+                                <p>🎵 Аудио демо временно недоступно</p>
+                                <p><small>Здесь будет моя последняя инструментальная демка</small></p>
+                            </div>
                         </div>
-                        <div class="track-info">
-                            <div class="track-detail">
-                                <span>Длительность:</span>
-                                <span>3:45</span>
-                            </div>
-                            <div class="track-detail">
-                                <span>Тональность:</span>
-                                <span>A минор</span>
-                            </div>
-                            <div class="track-detail">
-                                <span>Темп:</span>
-                                <span>77 BPM</span>
-                            </div>
+                        <div class="project-links">
+                            <button class="project-link audio-link">
+                                <span>Слушать</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -172,13 +190,8 @@
                 <!-- Проект 5: Каверы Sokoninaru -->
                 <div class="project-card" data-category="music">
                     <div class="project-image">
+                        <div class="project-badge">Каверы</div>
                         <img src="images/sokoninaru-cover.jpg" alt="Sokoninaru каверы" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTFhIi8+PHBhdGggZD0iTTEwMCAxMDBMMzAwIDEwMEwyMDAgMjUwWiIgZmlsbD0iI2ZmNmI2YiIvPjx0ZXh0IHg9IjUwJSIgeT0iNzUlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNva29uaW5hcnU8L3RleHQ+PC9zdmc+';">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <button class="project-btn listen-now" data-project="sokoninaru">Слушать</button>
-                                <button class="project-btn view-tabs" data-project="sokoninaru">Табы</button>
-                            </div>
-                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Sokoninaru - Каверы</h3>
@@ -187,51 +200,53 @@
                             <span class="tech-tag">Каверы</span>
                             <span class="tech-tag">Японский рок</span>
                             <span class="tech-tag">Прогрессив</span>
-                            <span class="tech-tag">Math Rock</span>
                         </div>
-                        
                         <div class="playlist">
                             <div class="playlist-item">
-                                <div class="track-header">
+                                <div class="track-info">
                                     <span class="track-number">1</span>
                                     <span class="track-title">さらば浮世写し絵の如く</span>
                                 </div>
-                                <audio controls class="track-player">
-                                    <source src="audio/sokoninaru1.mp3" type="audio/mpeg">
-                                </audio>
+                                <div class="audio-placeholder small">
+                                    <span>Демо недоступно</span>
+                                </div>
                             </div>
                             <div class="playlist-item">
-                                <div class="track-header">
+                                <div class="track-info">
                                     <span class="track-number">2</span>
                                     <span class="track-title">Azure Frust</span>
                                 </div>
-                                <audio controls class="track-player">
-                                    <source src="audio/sokoninaru2.mp3" type="audio/mpeg">
-                                </audio>
+                                <div class="audio-placeholder small">
+                                    <span>Демо недоступно</span>
+                                </div>
                             </div>
                             <div class="playlist-item">
-                                <div class="track-header">
+                                <div class="track-info">
                                     <span class="track-number">3</span>
                                     <span class="track-title">Complicated System</span>
                                 </div>
-                                <audio controls class="track-player">
-                                    <source src="audio/sokoninaru3.mp3" type="audio/mpeg">
-                                </audio>
+                                <div class="audio-placeholder small">
+                                    <span>Демо недоступно</span>
+                                </div>
                             </div>
+                        </div>
+                        <div class="project-links">
+                            <button class="project-link audio-link">
+                                <span>Слушать все</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Проект 6: Веб-приложения -->
-                <div class="project-card" data-category="code">
+                <div class="project-card" data-category="development">
                     <div class="project-image">
+                        <div class="project-badge">Web</div>
                         <img src="images/project-web.jpg" alt="Веб-приложения" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTFhIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI3MCIgZmlsbD0iIzMxODJjZSIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIxMDAiIHI9IjIwIiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMjAwIiByPSIyMCIgZmlsbD0iI2ZmZiIvPjx0ZXh0IHg9IjUwJSIgeT0iNzUlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPldlYiBBcHBzPC90ZXh0Pjwvc3ZnPg==';">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <button class="project-btn view-demo" data-project="web">Демо</button>
-                                <button class="project-btn view-code" data-project="web">Код</button>
-                            </div>
-                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Веб-приложения</h3>
@@ -251,32 +266,28 @@
                                 <li>Современные анимации</li>
                             </ul>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/polysock/web-apps" class="project-link" target="_blank">
+                                <span>Код</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Статистика -->
-            <div class="portfolio-stats">
-                <div class="stat-card">
-                    <div class="stat-icon">💻</div>
-                    <div class="stat-number">8+</div>
-                    <div class="stat-label">Проектов в разработке</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">🎸</div>
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Музыкальных треков</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">⏱️</div>
-                    <div class="stat-number">2+</div>
-                    <div class="stat-label">Года опыта</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">🚀</div>
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Энтузиазма</div>
-                </div>
+            <!-- Призыв к действию -->
+            <div class="portfolio-cta">
+                <h2>Заинтересовали мои работы?</h2>
+                <p>Давайте создадим что-то невероятное вместе!</p>
+                <a href="contacts.html" class="cosmic-btn primary-btn">
+                    <span class="btn-glow"></span>
+                    Связаться со мной
+                </a>
             </div>
         </div>
     </section>
@@ -292,7 +303,7 @@
                     <p class="footer-quote">"Код и музыка - мои космические корабли"</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Орбиты связи</h4>
+                    <h4>Связь</h4>
                     <div class="social-links">
                         <a href="https://t.me/yuaself" class="social-link" target="_blank">
                             <span class="social-icon">📡</span>
@@ -317,7 +328,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="cosmic-effects.js"></script>
-    <script src="portfolio-manager.js"></script>
+    <script src="portfolio.js"></script>
 </body>
 </html>
