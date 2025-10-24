@@ -18,22 +18,32 @@
 
     <!-- Навигация -->
     <nav class="cosmic-nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-icon">🚀</span>
-                <span class="logo-text">Polysok / Yuaself</span>
-            </div>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link">Главная</a>
-                <a href="about.html" class="nav-link active">О себе</a>
-                <a href="portfolio.html" class="nav-link">Портфолио</a>
-                <a href="contacts.html" class="nav-link">Контакты</a>
-            </div>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle">🌙</button>
-            </div>
+    <div class="nav-container">
+        <div class="nav-logo">
+            <span class="logo-icon">🚀</span>
+            <span class="logo-text">Polysok / Yuaself</span>
         </div>
-    </nav>
+        
+        <!-- Бургер-меню -->
+        <button class="nav-toggle" id="navToggle" aria-label="Открыть меню">
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <div class="nav-toggle-glow"></div>
+        </button>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-link">Главная</a>
+            <a href="about.html" class="nav-link">О себе</a>
+            <a href="portfolio.html" class="nav-link">Портфолио</a>
+            <a href="contacts.html" class="nav-link">Контакты</a>
+        </div>
+        
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </div>
+</nav>
 
     <!-- Герой секция about -->
     <section class="about-hero">
@@ -246,6 +256,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
