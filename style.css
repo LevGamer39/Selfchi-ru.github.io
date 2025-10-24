@@ -227,7 +227,7 @@ h3 { font-size: 1.5rem; }
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(10, 10, 26, 0.9);
+    background: var(--cosmic-card);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--cosmic-border);
     z-index: 1000;
@@ -2441,7 +2441,7 @@ h3 { font-size: 1.5rem; }
 /* Секция двойной идентичности */
 .dual-identity {
     padding: 6rem 0;
-    background: rgba(5, 5, 16, 0.7);
+    background: var(--cosmic-card);
 }
 
 .identity-cards {
@@ -4126,6 +4126,7 @@ h3 { font-size: 1.5rem; }
         font-size: 1rem;
     }
 }
+
 
 
 
