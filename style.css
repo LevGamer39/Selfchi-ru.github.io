@@ -3340,6 +3340,792 @@ h3 { font-size: 1.5rem; }
         margin-bottom: 0;
     }
 }
+/* Стили для страницы контактов */
+
+/* Герой секция контактов */
+.contacts-hero {
+    padding: 120px 0 80px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 136, 0.05) 100%);
+    border-bottom: 1px solid var(--cosmic-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.contacts-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contacts-header .cosmic-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.contacts-subtitle {
+    font-size: 1.3rem;
+    color: var(--cosmic-text-secondary);
+    margin-bottom: 3rem;
+}
+
+/* Статистика связи */
+.connection-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.connection-stat {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--cosmic-card);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--cosmic-border);
+    transition: all 0.3s ease;
+}
+
+.connection-stat:hover {
+    transform: translateY(-5px);
+    border-color: var(--cosmic-accent);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.stat-icon {
+    font-size: 2rem;
+}
+
+.stat-info {
+    text-align: left;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cosmic-accent);
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 0.2rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--cosmic-text-secondary);
+}
+
+/* Основной контент */
+.contacts-content-section {
+    padding: 80px 0;
+}
+
+.contacts-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Левая колонка */
+.contacts-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Карточка школы */
+.school-info-card {
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.school-info-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cosmic-accent);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.school-icon {
+    font-size: 2.5rem;
+}
+
+.card-header h3 {
+    color: var(--cosmic-text);
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.school-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--cosmic-border);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    color: var(--cosmic-text-secondary);
+    font-weight: 500;
+    font-size: 0.9rem;
+    min-width: 80px;
+}
+
+.detail-value {
+    color: var(--cosmic-text);
+    text-align: right;
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.detail-link {
+    color: var(--cosmic-accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.detail-link:hover {
+    color: var(--cosmic-neon);
+}
+
+.school-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.school-info-card:hover .school-glow {
+    left: 100%;
+}
+
+/* Быстрые контакты */
+.quick-contacts {
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.quick-contacts h3 {
+    color: var(--cosmic-text);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quick-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--cosmic-text);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.quick-link:hover::before {
+    left: 100%;
+}
+
+.quick-link:hover {
+    transform: translateX(5px);
+    border-color: var(--cosmic-accent);
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.link-icon {
+    font-size: 1.5rem;
+    width: 30px;
+}
+
+.link-text {
+    flex: 1;
+    font-weight: 500;
+}
+
+.link-badge {
+    background: var(--cosmic-accent);
+    color: var(--cosmic-dark);
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.quick-link.telegram:hover {
+    border-color: #0088cc;
+    background: rgba(0, 136, 204, 0.1);
+}
+
+.quick-link.email:hover {
+    border-color: var(--cosmic-neon);
+    background: rgba(0, 255, 136, 0.1);
+}
+
+.quick-link.github:hover {
+    border-color: #6e5494;
+    background: rgba(110, 84, 148, 0.1);
+}
+
+/* Правая колонка */
+.contacts-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Карточка формы */
+.contact-form-card {
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form-card:hover {
+    border-color: var(--cosmic-accent);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+}
+
+.contact-form-card .card-header {
+    margin-bottom: 2rem;
+}
+
+.contact-form-card .card-header h2 {
+    color: var(--cosmic-text);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.contact-form-card .card-header p {
+    color: var(--cosmic-text-secondary);
+    margin: 0.5rem 0 0 0;
+}
+
+/* Улучшенная форма */
+.cosmic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--cosmic-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 1rem 1.2rem;
+    background: rgba(16, 16, 32, 0.6);
+    border: 2px solid var(--cosmic-border);
+    border-radius: 12px;
+    color: var(--cosmic-text);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--cosmic-accent);
+    box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1);
+    background: rgba(16, 16, 32, 0.8);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--cosmic-text-secondary);
+    margin-top: 0.5rem;
+}
+
+.submit-btn {
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.submit-btn.loading .btn-text {
+    opacity: 0;
+}
+
+.btn-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    opacity: 0;
+}
+
+.submit-btn.loading .btn-loading {
+    opacity: 1;
+}
+
+/* Социальные сети */
+.social-networks {
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.social-networks h3 {
+    color: var(--cosmic-text);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.networks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.network-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--cosmic-text);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.network-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.network-card:hover::before {
+    left: 100%;
+}
+
+.network-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--cosmic-accent);
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.network-icon {
+    font-size: 2rem;
+    width: 40px;
+}
+
+.network-info {
+    flex: 1;
+}
+
+.network-info h4 {
+    color: var(--cosmic-text);
+    margin: 0 0 0.3rem 0;
+    font-size: 1rem;
+}
+
+.network-info p {
+    color: var(--cosmic-text-secondary);
+    margin: 0 0 0.3rem 0;
+    font-size: 0.9rem;
+}
+
+.network-status {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--cosmic-accent);
+    font-weight: 600;
+}
+
+.network-status.active {
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--cosmic-neon);
+}
+
+.network-arrow {
+    color: var(--cosmic-text-secondary);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.network-card:hover .network-arrow {
+    transform: translateX(5px);
+    color: var(--cosmic-accent);
+}
+
+/* FAQ секция */
+.faq-section {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--cosmic-border);
+}
+
+.faq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: var(--cosmic-accent);
+}
+
+.faq-question {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.faq-question h3 {
+    color: var(--cosmic-text);
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.faq-toggle {
+    color: var(--cosmic-accent);
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    min-width: 20px;
+    text-align: center;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--cosmic-text-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(180deg);
+}
+
+/* Спутники связи */
+.communication-satellites {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.satellite {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--cosmic-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--cosmic-accent);
+    animation: satellite-orbit linear infinite;
+}
+
+#satellite-1 {
+    top: 20%;
+    left: 10%;
+    animation-duration: 25s;
+}
+
+#satellite-2 {
+    top: 60%;
+    left: 80%;
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+
+#satellite-3 {
+    top: 40%;
+    left: 90%;
+    animation-duration: 20s;
+    animation-delay: -5s;
+}
+
+@keyframes satellite-orbit {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-50px, 30px);
+    }
+    50% {
+        transform: translate(-100px, 0);
+    }
+    75% {
+        transform: translate(-50px, -30px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Уведомления */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    animation: slideInRight 0.3s ease;
+}
+
+.notification-content {
+    background: var(--cosmic-card);
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.notification.success .notification-content {
+    border-color: var(--cosmic-neon);
+    background: rgba(0, 255, 136, 0.1);
+}
+
+.notification.error .notification-content {
+    border-color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.notification-icon {
+    font-size: 1.2rem;
+}
+
+.notification-text {
+    color: var(--cosmic-text);
+    font-weight: 500;
+    flex: 1;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: var(--cosmic-text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.notification-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--cosmic-text);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 968px) {
+    .contacts-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contacts-header .cosmic-title {
+        font-size: 3rem;
+    }
+    
+    .connection-stats {
+        gap: 1.5rem;
+    }
+    
+    .connection-stat {
+        flex: 1;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .networks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .connection-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .connection-stat {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .contacts-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .contacts-content-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts-header .cosmic-title {
+        font-size: 2.5rem;
+    }
+    
+    .contact-form-card,
+    .school-info-card,
+    .quick-contacts,
+    .social-networks {
+        padding: 1.5rem;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .detail-value {
+        text-align: left;
+        margin-left: 0;
+    }
+    
+    .faq-question {
+        padding: 1rem;
+    }
+    
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+}
 
 
 
