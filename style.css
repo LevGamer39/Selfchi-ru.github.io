@@ -294,14 +294,6 @@ body {
     animation-delay: -10s;
 }
 
-@keyframes satellite-orbit {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg) translateX(300px) rotate(0deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg) translateX(300px) rotate(-360deg);
-    }
-}
 
 .satellite-content {
     text-align: center;
@@ -1899,4 +1891,5 @@ body {
         height: 200px;
     }
 }
+
 
