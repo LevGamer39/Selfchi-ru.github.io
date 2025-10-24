@@ -1766,3 +1766,541 @@ body {
         padding: 1.5rem;
     }
 }
+/* Добавьте это в ваш style.css */
+
+/* Новая герой секция */
+.hero-matrix {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Бинарный дождь */
+.binary-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--cosmic-accent);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.binary-rain::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(transparent 95%, rgba(0, 212, 255, 0.1) 100%);
+    animation: binaryFall 20s linear infinite;
+}
+
+@keyframes binaryFall {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* Квантовый портал */
+.quantum-portal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.portal-core {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.portal-energy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, var(--cosmic-neon), transparent 70%);
+    border-radius: 50%;
+    filter: blur(10px);
+    animation: portalPulse 3s ease-in-out infinite;
+}
+
+@keyframes portalPulse {
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+}
+
+.portal-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.portal-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid transparent;
+    border-radius: 50%;
+    animation: portalRotate linear infinite;
+}
+
+.ring-1 {
+    width: 120px;
+    height: 120px;
+    border-top-color: var(--cosmic-accent);
+    animation-duration: 8s;
+}
+
+.ring-2 {
+    width: 160px;
+    height: 160px;
+    border-right-color: var(--cosmic-neon);
+    animation-duration: 12s;
+    animation-direction: reverse;
+}
+
+.ring-3 {
+    width: 200px;
+    height: 200px;
+    border-bottom-color: var(--cosmic-primary);
+    animation-duration: 16s;
+}
+
+@keyframes portalRotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Орбита идентичностей */
+.identity-orbit {
+    position: relative;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    z-index: 2;
+}
+
+.identity-card {
+    position: relative;
+    background: var(--cosmic-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 320px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.identity-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--cosmic-accent);
+    box-shadow: 
+        0 20px 40px rgba(0, 212, 255, 0.3),
+        0 0 80px rgba(0, 212, 255, 0.1);
+}
+
+.developer-side:hover {
+    box-shadow: 
+        0 20px 40px rgba(102, 126, 234, 0.3),
+        0 0 80px rgba(102, 126, 234, 0.1);
+}
+
+.musician-side:hover {
+    box-shadow: 
+        0 20px 40px rgba(0, 255, 136, 0.3),
+        0 0 80px rgba(0, 255, 136, 0.1);
+}
+
+.identity-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent);
+    transition: left 0.6s ease;
+}
+
+.identity-card:hover .identity-glow {
+    left: 100%;
+}
+
+/* Аватар с голограммой */
+.identity-avatar {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+}
+
+.avatar-hologram {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(0, 212, 255, 0.1);
+    border: 2px solid var(--cosmic-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hologram-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 49%, rgba(0, 212, 255, 0.3) 50%, transparent 51%),
+        linear-gradient(transparent 49%, rgba(0, 212, 255, 0.3) 50%, transparent 51%);
+    background-size: 20px 20px;
+    animation: gridMove 4s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+.avatar-core {
+    font-size: 2.5rem;
+    z-index: 2;
+}
+
+.avatar-pulse {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid var(--cosmic-accent);
+    border-radius: 50%;
+    animation: avatarPulse 2s ease-out infinite;
+}
+
+@keyframes avatarPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Контент идентичности */
+.identity-content {
+    text-align: center;
+}
+
+.identity-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-neon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.identity-subtitle {
+    color: var(--cosmic-text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Статистика */
+.identity-stats {
+    margin-bottom: 1.5rem;
+}
+
+.stat {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.stat-value {
+    display: block;
+    color: var(--cosmic-text);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.stat-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--cosmic-border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cosmic-accent), var(--cosmic-neon));
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Теги */
+.identity-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.tech-tag, .music-tag {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tech-tag {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: var(--cosmic-accent);
+}
+
+.music-tag {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    color: var(--cosmic-neon);
+}
+
+.tech-tag:hover, .music-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+}
+
+/* Центральная информация */
+.central-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.info-hologram {
+    background: rgba(16, 16, 32, 0.9);
+    backdrop-filter: blur(30px);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.info-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    color: var(--cosmic-accent);
+    margin-bottom: 1.5rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.info-label {
+    font-size: 0.8rem;
+    color: var(--cosmic-text-secondary);
+}
+
+.info-value {
+    font-size: 0.9rem;
+    color: var(--cosmic-text);
+    font-weight: 600;
+}
+
+.info-quote {
+    font-style: italic;
+    color: var(--cosmic-neon);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--cosmic-border);
+    padding-top: 1rem;
+}
+
+/* Парящие частицы */
+.floating-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--cosmic-accent);
+    animation: floatParticle linear infinite;
+}
+
+.particle-1 {
+    width: 4px;
+    height: 4px;
+    top: 20%;
+    left: 10%;
+    animation-duration: 15s;
+}
+
+.particle-2 {
+    width: 6px;
+    height: 6px;
+    top: 60%;
+    left: 85%;
+    animation-duration: 20s;
+    background: var(--cosmic-neon);
+}
+
+.particle-3 {
+    width: 3px;
+    height: 3px;
+    top: 80%;
+    left: 20%;
+    animation-duration: 12s;
+}
+
+.particle-4 {
+    width: 5px;
+    height: 5px;
+    top: 30%;
+    left: 75%;
+    animation-duration: 18s;
+    background: var(--cosmic-primary);
+}
+
+.particle-5 {
+    width: 4px;
+    height: 4px;
+    top: 70%;
+    left: 90%;
+    animation-duration: 25s;
+}
+
+@keyframes floatParticle {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100px) translateX(50px);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 968px) {
+    .identity-orbit {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .identity-card {
+        width: 280px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .portal-core {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .ring-1 { width: 90px; height: 90px; }
+    .ring-2 { width: 120px; height: 120px; }
+    .ring-3 { width: 150px; height: 150px; }
+    
+    .identity-title {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .identity-card {
+        width: 260px;
+        padding: 2rem;
+    }
+    
+    .info-hologram {
+        padding: 1.5rem;
+    }
+    
+    .info-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Анимация загрузки статистики */
+.stat-fill[data-level="95"] { width: 95%; }
+.stat-fill[data-level="90"] { width: 90%; }
+.stat-fill[data-level="85"] { width: 85%; }
+.stat-fill[data-level="98"] { width: 98%; }
+.stat-fill[data-level="92"] { width: 92%; }
