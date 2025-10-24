@@ -174,64 +174,46 @@
     </form>
 </div>
 
+<!-- Подключаем EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 <script>
+// Инициализируем EmailJS
+emailjs.init("MeqdtLSrmqvRV_5ci"); // Замените на ваш ключ
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Получаем данные из формы
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    const category = document.getElementById('category').value;
+    const formData = {
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+        category: document.getElementById('category').value,
+        to_email: 'hereimage99@gmail.com'
+    };
     
-    // Формируем тему письма
-    const emailSubject = `[${category}] ${subject}`;
+    showNotification('Сообщение отправляется...', 'info');
     
-    // Формируем тело письма
-    const emailBody = `
-Имя: ${name}
-Email: ${email}
-Категория: ${category}
-
-Сообщение:
-${message}
-    `.trim();
-    
-    // Кодируем для URL
-    const encodedSubject = encodeURIComponent(emailSubject);
-    const encodedBody = encodeURIComponent(emailBody);
-    
-    // Создаем mailto ссылку
-    const mailtoLink = `mailto:hereimage99@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
-    
-    // Показываем уведомление
-    showNotification('Открывается почтовый клиент...', 'info');
-    
-    // Открываем почтовый клиент
-    setTimeout(() => {
-        window.location.href = mailtoLink;
-        
-        // Очищаем форму после отправки
-        setTimeout(() => {
+    // Отправляем email
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+        .then(function(response) {
+            showNotification('✅ Сообщение успешно отправлено!', 'success');
             document.getElementById('contactForm').reset();
-            showNotification('Сообщение подготовлено для отправки!', 'success');
-        }, 1000);
-    }, 1500);
+        }, function(error) {
+            showNotification('❌ Ошибка отправки. Попробуйте еще раз.', 'error');
+            console.error('EmailJS error:', error);
+        });
 });
 
-// Функция для показа уведомлений
 function showNotification(message, type = 'info') {
-    // Удаляем предыдущие уведомления
     const existingNotifications = document.querySelectorAll('.notification');
     existingNotifications.forEach(notification => notification.remove());
     
-    // Создаем элемент уведомления
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
     
-    // Добавляем стили
     notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -247,7 +229,6 @@ function showNotification(message, type = 'info') {
         font-weight: 500;
     `;
     
-    // Устанавливаем цвета в зависимости от типа
     if (type === 'success') {
         notification.style.background = 'rgba(0, 255, 136, 0.1)';
         notification.style.borderColor = 'var(--cosmic-neon)';
@@ -264,42 +245,24 @@ function showNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
-    // Удаляем уведомление через 4 секунды
     setTimeout(() => {
         notification.style.animation = 'slideOutRight 0.3s ease forwards';
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
-            }
-        }, 300);
+        setTimeout(() => notification.remove(), 300);
     }, 4000);
 }
 
-// Добавляем CSS анимации для уведомлений
+// Добавляем CSS анимации
 if (!document.querySelector('style#notification-animations')) {
     const style = document.createElement('style');
     style.id = 'notification-animations';
     style.textContent = `
         @keyframes slideInRight {
-            from { 
-                transform: translateX(100%); 
-                opacity: 0; 
-            }
-            to { 
-                transform: translateX(0); 
-                opacity: 1; 
-            }
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
-        
         @keyframes slideOutRight {
-            from { 
-                transform: translateX(0); 
-                opacity: 1; 
-            }
-            to { 
-                transform: translateX(100%); 
-                opacity: 0; 
-            }
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
         }
     `;
     document.head.appendChild(style);
@@ -373,4 +336,5 @@ if (!document.querySelector('style#notification-animations')) {
 </body>
 
 </html>
+
 
