@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polysok / Yuaself - Космический разработчик & Гитарист</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Космический фон -->
+    <div id="cosmic-background">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="planets">
+            <div class="planet" id="planet-1"></div>
+            <div class="planet" id="planet-2"></div>
+            <div class="planet" id="planet-3"></div>
+        </div>
+        <div class="meteors">
+            <div class="meteor"></div>
+            <div class="meteor"></div>
+            <div class="meteor"></div>
+        </div>
+    </div>
+
+    <!-- Навигация -->
+    <nav class="cosmic-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🚀</span>
+                <span class="logo-text">Polysok / Yuaself</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="about.html" class="nav-link">О себе</a>
+                <a href="portfolio.html" class="nav-link">Портфолио</a>
+                <a href="contacts.html" class="nav-link">Контакты</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="cosmic-hero">
+        <div class="hero-orbit">
+            <div class="orbit-path"></div>
+            <div class="satellite" id="code-satellite">
+                <div class="satellite-content">
+                    <div class="avatar cosmic-avatar">
+                        <div class="avatar-glow"></div>
+                        <img src="images/avatar-code.jpg" alt="Polysok - Разработчик" onerror="this.style.display='none'">
+                    </div>
+                    <h1 class="cosmic-title">Polysok</h1>
+                    <p class="cosmic-subtitle">Fullstack Developer</p>
+                    <p class="cosmic-description">Создаю космические решения</p>
+                    <div class="tech-constellation">
+                        <span class="tech-star">Python</span>
+                        <span class="tech-star">C#</span>
+                        <span class="tech-star">Go</span>
+                        <span class="tech-star">Unity</span>
+                    </div>
+                    <a href="portfolio.html#code" class="cosmic-btn">
+                        <span class="btn-glow"></span>
+                        Исследовать проекты
+                    </a>
+                </div>
+            </div>
+
+            <div class="satellite" id="music-satellite">
+                <div class="satellite-content">
+                    <div class="avatar cosmic-avatar">
+                        <div class="avatar-glow"></div>
+                        <img src="images/avatar-music.jpg" alt="Yuaself - Гитарист" onerror="this.style.display='none'">
+                    </div>
+                    <h1 class="cosmic-title">Yuaself</h1>
+                    <p class="cosmic-subtitle">Guitar Astronaut</p>
+                    <p class="cosmic-description">Звуки космоса в струнах</p>
+                    <div class="tech-constellation">
+                        <span class="tech-star">Progressive</span>
+                        <span class="tech-star">Math Rock</span>
+                        <span class="tech-star">Sokoninaru</span>
+                    </div>
+                    <a href="portfolio.html#music" class="cosmic-btn">
+                        <span class="btn-glow"></span>
+                        Слушать космос
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Центральная планета -->
+        <div class="central-planet">
+            <div class="planet-core"></div>
+            <div class="planet-rings">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+            </div>
+            <div class="planet-info">
+                <h2>Инженерно-космический</h2>
+                <p>9"И" класс</p>
+                <p>МАОУ Гимназия №32</p>
+                <p>г. Калининград</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Быстрая навигация -->
+    <section class="quick-nav">
+        <div class="container">
+            <div class="nav-cards">
+                <a href="about.html" class="nav-card">
+                    <div class="card-icon">👨‍🚀</div>
+                    <h3>Моя история</h3>
+                    <p>Эссе об авторе и пути в IT и музыке</p>
+                    <div class="card-glow"></div>
+                </a>
+                <a href="portfolio.html" class="nav-card">
+                    <div class="card-icon">🛰️</div>
+                    <h3>Проекты</h3>
+                    <p>Космические разработки и музыка</p>
+                    <div class="card-glow"></div>
+                </a>
+                <a href="contacts.html" class="nav-card">
+                    <div class="card-icon">📡</div>
+                    <h3>Связь</h3>
+                    <p>Контактные данные и соцсети</p>
+                    <div class="card-glow"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="cosmic-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🚀 Polysok / Yuaself</h3>
+                    <p>Ученик 9"И" инженерно-космического класса</p>
+                    <p class="school-info">МАОУ Гимназия №32 г. Калининграда</p>
+                    <p class="footer-quote">"Код и музыка - мои космические корабли"</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Орбиты связи</h4>
+                    <div class="social-links">
+                        <a href="https://t.me/yuaself" class="social-link" target="_blank">
+                            <span class="social-icon">📡</span>
+                            Telegram
+                        </a>
+                        <a href="https://github.com/polysock" class="social-link" target="_blank">
+                            <span class="social-icon">🌌</span>
+                            GitHub
+                        </a>
+                        <a href="https://youtube.com/@yuaself" class="social-link" target="_blank">
+                            <span class="social-icon">🎥</span>
+                            YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Polysok / Yuaself. Запуск с планеты Земля 🪐</p>
+                <p>Сайт создан для конкурса в номинации "Хобби"</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cosmic-effects.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>
