@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,14 @@
         <div class="stars"></div>
         <div class="twinkling"></div>
         <div class="planets">
-            <div class="planet" id="planet-6"></div>
+            <div class="planet" id="planet-4"></div>
+            <div class="planet" id="planet-5"></div>
+        </div>
+        <!-- Анимированные спутники связи -->
+        <div class="communication-satellites">
+            <div class="satellite" id="satellite-1"></div>
+            <div class="satellite" id="satellite-2"></div>
+            <div class="satellite" id="satellite-3"></div>
         </div>
     </div>
 
@@ -38,287 +45,286 @@
         </div>
     </nav>
 
-    <!-- Контакты -->
-    <section class="contacts-section">
+    <!-- Герой секция контактов -->
+    <section class="contacts-hero">
         <div class="container">
             <div class="contacts-header">
-                <h1 class="cosmic-title">Космическая связь</h1>
+                <div class="hero-badge">
+                    <span>📡 Установи связь</span>
+                </div>
+                <h1 class="cosmic-title">Космическая <span class="title-gradient">связь</span></h1>
                 <p class="contacts-subtitle">Давайте создадим что-то невероятное вместе!</p>
+                
+                <!-- Статистика связи -->
+                <div class="connection-stats">
+                    <div class="connection-stat">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-info">
+                            <div class="stat-value">~1 мин</div>
+                            <div class="stat-label">среднее время ответа</div>
+                        </div>
+                    </div>
+                    <div class="connection-stat">
+                        <div class="stat-icon">🌐</div>
+                        <div class="stat-info">
+                            <div class="stat-value">24/7</div>
+                            <div class="stat-label">доступность</div>
+                        </div>
+                    </div>
+                    <div class="connection-stat">
+                        <div class="stat-icon">🚀</div>
+                        <div class="stat-info">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label">готов к проектам</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="contacts-content">
-                <!-- Информация о школе -->
-                <div class="school-info-card">
-                    <div class="school-icon">🏫</div>
-                    <div class="school-details">
-                        <h3>МАОУ Гимназия №32 г. Калининграда</h3>
-                        <div class="school-info-grid">
-                            <div class="info-item">
-                                <span class="info-label">Класс:</span>
-                                <span class="info-value">9"И" (инженерно-космический)</span>
+    <!-- Основной контент -->
+    <section class="contacts-content-section">
+        <div class="container">
+            <div class="contacts-layout">
+                <!-- Левая колонка - контакты и школа -->
+                <div class="contacts-sidebar">
+                    <!-- Информация о школе -->
+                    <div class="school-info-card">
+                        <div class="card-header">
+                            <div class="school-icon">🏫</div>
+                            <h3>МАОУ Гимназия №32</h3>
+                        </div>
+                        <div class="school-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Класс</span>
+                                <span class="detail-value">9"И" (инженерно-космический)</span>
                             </div>
-                            <div class="info-item">
-                                <span class="info-label">Адрес:</span>
-                                <span class="info-value">г. Калининград, ул. Подполковника Иванникова, 6</span>
+                            <div class="detail-item">
+                                <span class="detail-label">Адрес</span>
+                                <span class="detail-value">г. Калининград, ул. Подполковника Иванникова, 6</span>
                             </div>
-                            <div class="info-item">
-                                <span class="info-label">Телефон:</span>
-                                <span class="info-value">+7 (4012) 65-17-79</span>
+                            <div class="detail-item">
+                                <span class="detail-label">Телефон</span>
+                                <span class="detail-value">+7 (4012) 65-17-79</span>
                             </div>
-                            <div class="info-item">
-                                <span class="info-label">Сайт:</span>
-                                <span class="info-value"><a href="https://gymnasium32.org" target="_blank">gymnasium32.org</a></span>
+                            <div class="detail-item">
+                                <span class="detail-label">Сайт</span>
+                                <a href="https://gymnasium32.org" class="detail-link" target="_blank">gymnasium32.org</a>
                             </div>
+                        </div>
+                        <div class="school-glow"></div>
+                    </div>
+
+                    <!-- Быстрые контакты -->
+                    <div class="quick-contacts">
+                        <h3>⚡ Быстрая связь</h3>
+                        <div class="quick-links">
+                            <a href="https://t.me/yuaself" class="quick-link telegram" target="_blank">
+                                <span class="link-icon">📡</span>
+                                <span class="link-text">Telegram</span>
+                                <span class="link-badge">Рекомендуется</span>
+                            </a>
+                            <a href="mailto:polysok.dev@gmail.com" class="quick-link email">
+                                <span class="link-icon">📧</span>
+                                <span class="link-text">Email</span>
+                                <span class="link-badge">Официально</span>
+                            </a>
+                            <a href="https://github.com/polysock" class="quick-link github" target="_blank">
+                                <span class="link-icon">🌌</span>
+                                <span class="link-text">GitHub</span>
+                                <span class="link-badge">Проекты</span>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Основные контакты -->
-                <div class="contacts-grid">
-                    <div class="contact-card">
-                        <div class="contact-icon">📡</div>
-                        <h3>Telegram</h3>
-                        <p>Основной способ связи для быстрых вопросов и обсуждения проектов</p>
-                        <a href="https://t.me/yuaself" class="contact-link" target="_blank">
-                            @yuaself
-                            <span class="link-arrow">→</span>
-                        </a>
+                <!-- Правая колонка - форма и соцсети -->
+                <div class="contacts-main">
+                    <!-- Форма обратной связи -->
+                    <div class="contact-form-card">
+                        <div class="card-header">
+                            <h2>📨 Отправить сообщение</h2>
+                            <p>Отправьте ваше сообщение в космос, и я обязательно отвечу!</p>
+                        </div>
+                        
+                        <form class="cosmic-form" id="contactForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Ваше имя *</label>
+                                    <input type="text" id="name" name="name" required placeholder="Как к вам обращаться?">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Ваш Email *</label>
+                                    <input type="email" id="email" name="email" required placeholder="для ответа">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Тема сообщения *</label>
+                                <input type="text" id="subject" name="subject" required placeholder="О чём хотите поговорить?">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="category">Категория</label>
+                                <select id="category" name="category">
+                                    <option value="Программирование">💻 Программирование</option>
+                                    <option value="Музыка">🎸 Музыка</option>
+                                    <option value="Сотрудничество">🤝 Сотрудничество</option>
+                                    <option value="Вопрос">❓ Вопрос</option>
+                                    <option value="Другое">✨ Другое</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Сообщение *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Опишите вашу идею, вопрос или предложение..."></textarea>
+                                <div class="char-counter">
+                                    <span id="charCount">0</span>/1000 символов
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="cosmic-btn submit-btn">
+                                <span class="btn-glow"></span>
+                                <span class="btn-text">🚀 Отправить в космос</span>
+                                <span class="btn-loading"></span>
+                            </button>
+                        </form>
                     </div>
 
-                    <div class="contact-card">
-                        <div class="contact-icon">🌌</div>
-                        <h3>GitHub</h3>
-                        <p>Исходный код моих проектов и участие в open-source разработке</p>
-                        <a href="https://github.com/polysock" class="contact-link" target="_blank">
-                            polysock
-                            <span class="link-arrow">→</span>
-                        </a>
-                    </div>
+                    <!-- Все социальные сети -->
+                    <div class="social-networks">
+                        <h3>🌐 Все орбиты связи</h3>
+                        <div class="networks-grid">
+                            <a href="https://t.me/yuaself" class="network-card" target="_blank">
+                                <div class="network-icon">📡</div>
+                                <div class="network-info">
+                                    <h4>Telegram</h4>
+                                    <p>@yuaself</p>
+                                    <span class="network-status active">Online</span>
+                                </div>
+                                <div class="network-arrow">→</div>
+                            </a>
 
-                    <div class="contact-card">
-                        <div class="contact-icon">🎥</div>
-                        <h3>YouTube</h3>
-                        <p>Музыкальные каверы, гитарные разборы и демо проектов</p>
-                        <a href="https://youtube.com/@yuaself" class="contact-link" target="_blank">
-                            Yuaself Music
-                            <span class="link-arrow">→</span>
-                        </a>
-                    </div>
+                            <a href="https://github.com/polysock" class="network-card" target="_blank">
+                                <div class="network-icon">🌌</div>
+                                <div class="network-info">
+                                    <h4>GitHub</h4>
+                                    <p>polysock</p>
+                                    <span class="network-status">15+ проектов</span>
+                                </div>
+                                <div class="network-arrow">→</div>
+                            </a>
 
-                    <div class="contact-card">
-                        <div class="contact-icon">🎵</div>
-                        <h3>SoundCloud</h3>
-                        <p>Мои музыкальные демо и экспериментальные треки</p>
-                        <a href="https://soundcloud.com/yuaself" class="contact-link" target="_blank">
-                            Yuaself
-                            <span class="link-arrow">→</span>
-                        </a>
-                    </div>
+                            <a href="https://youtube.com/@yuaself" class="network-card" target="_blank">
+                                <div class="network-icon">🎥</div>
+                                <div class="network-info">
+                                    <h4>YouTube</h4>
+                                    <p>Yuaself Music</p>
+                                    <span class="network-status">Музыка</span>
+                                </div>
+                                <div class="network-arrow">→</div>
+                            </a>
 
-                    <div class="contact-card">
-                        <div class="contact-icon">📧</div>
-                        <h3>Email</h3>
-                        <p>Для официальных предложений и долгосрочных проектов</p>
-                        <a href="mailto:polysok.dev@gmail.com" class="contact-link">
-                            polysok.dev@gmail.com
-                            <span class="link-arrow">→</span>
-                        </a>
-                    </div>
+                            <a href="https://soundcloud.com/yuaself" class="network-card" target="_blank">
+                                <div class="network-icon">🎵</div>
+                                <div class="network-info">
+                                    <h4>SoundCloud</h4>
+                                    <p>Yuaself</p>
+                                    <span class="network-status">Демо</span>
+                                </div>
+                                <div class="network-arrow">→</div>
+                            </a>
 
-                    <div class="contact-card">
-                        <div class="contact-icon">💼</div>
-                        <h3>LinkedIn</h3>
-                        <p>Профессиональный профиль для сотрудничества</p>
-                        <a href="https://linkedin.com/in/polysok" class="contact-link" target="_blank">
-                            Polysok
-                            <span class="link-arrow">→</span>
-                        </a>
+                            <a href="https://linkedin.com/in/polysok" class="network-card" target="_blank">
+                                <div class="network-icon">💼</div>
+                                <div class="network-info">
+                                    <h4>LinkedIn</h4>
+                                    <p>Polysok</p>
+                                    <span class="network-status">Профессионально</span>
+                                </div>
+                                <div class="network-arrow">→</div>
+                            </a>
+
+                            <a href="https://vk.com/yuaself" class="network-card" target="_blank">
+                                <div class="network-icon">👥</div>
+                                <div class="network-info">
+                                    <h4>VK</h4>
+                                    <p>Yuaself</p>
+                                    <span class="network-status">Сообщество</span>
+                                </div>
+                                <div class="network-arrow">→</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Форма обратной связи -->
-<div class="contact-form-section">
-    <h2>Отправить сообщение</h2>
-    <form class="cosmic-form" id="contactForm">
-        <div class="form-grid">
-            <div class="form-group">
-                <label for="name">Ваше имя</label>
-                <input type="text" id="name" name="name" required>
             </div>
-            <div class="form-group">
-                <label for="email">Ваш Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="subject">Тема</label>
-            <input type="text" id="subject" name="subject" required>
-        </div>
-        <div class="form-group">
-            <label for="message">Сообщение</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="category">Категория</label>
-            <select id="category" name="category">
-                <option value="Программирование">Программирование</option>
-                <option value="Музыка">Музыка</option>
-                <option value="Сотрудничество">Сотрудничество</option>
-                <option value="Другое">Другое</option>
-            </select>
-        </div>
-        <button type="submit" class="cosmic-btn submit-btn">
-            <span class="btn-glow"></span>
-            Отправить в космос
-        </button>
-    </form>
-</div>
 
-<!-- Подключаем EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-<script>
-// Инициализируем EmailJS с публичным ключом
-(function() {
-    emailjs.init("MeqdtLSrmqvRV_5ci"); // ЗАМЕНИТЕ на ваш публичный ключ
-})();
-
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Показываем загрузку
-    const submitBtn = this.querySelector('.submit-btn');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '🔄 Отправка...';
-    submitBtn.disabled = true;
-    
-    // Собираем данные формы
-    const templateParams = {
-        from_name: document.getElementById('name').value,
-        from_email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value,
-        category: document.getElementById('category').value,
-        to_email: 'hereimage99@gmail.com'
-    };
-    
-    console.log('Отправка данных:', templateParams);
-    
-    // Отправляем email
-    emailjs.send('service_zx2o5s9', 'template_am65uhb', templateParams)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            showNotification('✅ Сообщение успешно отправлено!', 'success');
-            document.getElementById('contactForm').reset();
-        })
-        .catch(function(error) {
-            console.error('FAILED...', error);
-            showNotification('❌ Ошибка отправки: ' + getErrorMessage(error), 'error');
-        })
-        .finally(function() {
-            // Восстанавливаем кнопку
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        });
-});
-
-// Функция для понятных сообщений об ошибках
-function getErrorMessage(error) {
-    if (error.status === 0) {
-        return 'Нет подключения к интернету';
-    } else if (error.status === 400) {
-        return 'Неверные данные формы';
-    } else if (error.status === 401) {
-        return 'Ошибка авторизации. Проверьте настройки EmailJS';
-    } else if (error.status === 429) {
-        return 'Слишком много запросов. Попробуйте позже';
-    } else {
-        return 'Попробуйте еще раз';
-    }
-}
-
-function showNotification(message, type = 'info') {
-    const existingNotifications = document.querySelectorAll('.notification');
-    existingNotifications.forEach(notification => notification.remove());
-    
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.textContent = message;
-    
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 1rem 1.5rem;
-        border-radius: 12px;
-        z-index: 10000;
-        animation: slideInRight 0.3s ease;
-        max-width: 400px;
-        backdrop-filter: blur(10px);
-        border: 1px solid;
-        font-family: 'Rajdhani', sans-serif;
-        font-weight: 500;
-    `;
-    
-    if (type === 'success') {
-        notification.style.background = 'rgba(0, 255, 136, 0.1)';
-        notification.style.borderColor = 'var(--cosmic-neon)';
-        notification.style.color = 'var(--cosmic-neon)';
-    } else if (type === 'error') {
-        notification.style.background = 'rgba(255, 107, 107, 0.1)';
-        notification.style.borderColor = '#ff6b6b';
-        notification.style.color = '#ff6b6b';
-    } else {
-        notification.style.background = 'rgba(0, 212, 255, 0.1)';
-        notification.style.borderColor = 'var(--cosmic-accent)';
-        notification.style.color = 'var(--cosmic-accent)';
-    }
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.3s ease forwards';
-        setTimeout(() => notification.remove(), 300);
-    }, 5000);
-}
-
-// Добавляем CSS анимации
-if (!document.querySelector('style#notification-animations')) {
-    const style = document.createElement('style');
-    style.id = 'notification-animations';
-    style.textContent = `
-        @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOutRight {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-    `;
-    document.head.appendChild(style);
-}
-</script>
-
-                <!-- FAQ -->
-                <div class="faq-section">
-                    <h2>Часто задаваемые вопросы</h2>
-                    <div class="faq-grid">
-                        <div class="faq-item">
+            <!-- FAQ секция -->
+            <div class="faq-section">
+                <div class="section-header">
+                    <h2>❓ Часто задаваемые вопросы</h2>
+                    <p>Быстрые ответы на популярные вопросы</p>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
                             <h3>Как давно ты занимаешься программированием?</h3>
-                            <p>Более 2 лет. Начал с Python и постепенно расширил навыки до C#, Go и веб-разработки.</p>
+                            <span class="faq-toggle">+</span>
                         </div>
-                        <div class="faq-item">
+                        <div class="faq-answer">
+                            <p>Более 2 лет. Начал с Python и постепенно расширил навыки до C#, Go и веб-разработки. Создаю Telegram ботов, игры на Unity и изучаю backend-разработку.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
                             <h3>На каких гитарах играешь?</h3>
-                            <p>Играю на электрогитарах Ibanez и LTD, предпочитаю прогрессивный и математический рок.</p>
+                            <span class="faq-toggle">+</span>
                         </div>
-                        <div class="faq-item">
+                        <div class="faq-answer">
+                            <p>Играю на электрогитарах Ibanez и LTD, предпочитаю 7-струнные модели для прогрессивного и математического рока. Особенно вдохновляюсь японской группой Sokoninaru.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
                             <h3>Планируешь ли связать карьеру с IT?</h3>
-                            <p>Да, планирую развиваться в направлении backend-разработки и искусственного интеллекта.</p>
+                            <span class="faq-toggle">+</span>
                         </div>
-                        <div class="faq-item">
+                        <div class="faq-answer">
+                            <p>Да, планирую развиваться в направлении backend-разработки и искусственного интеллекта. Учёба в инженерно-космическом классе помогает развивать техническое мышление.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
                             <h3>Будут ли новые музыкальные релизы?</h3>
-                            <p>Да, работаю над несколькими инструментальными композициями в стиле прогрессивного рока.</p>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, работаю над несколькими инструментальными композициями в стиле прогрессивного рока. Следите за обновлениями на YouTube и SoundCloud!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Можно ли с тобой сотрудничать?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Конечно! Открыт к интересным проектам в IT и музыкальным коллаборациям. Пишите в Telegram или на почту - обсудим идеи!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Какой стек технологий используешь?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Основной стек: Python (Telegram bots, AI), C# (Unity), Go (backend), HTML/CSS/JS (web). Также работаю с SQLite, Git, и различными API.</p>
                         </div>
                     </div>
                 </div>
@@ -363,10 +369,132 @@ if (!document.querySelector('style#notification-animations')) {
 
     <script src="script.js"></script>
     <script src="cosmic-effects.js"></script>
-    <script src="contact-form.js"></script>
+    
+    <!-- EmailJS и скрипт формы -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Инициализация EmailJS
+        (function() {
+            emailjs.init("MeqdtLSrmqvRV_5ci");
+        })();
+
+        // Обработчик формы
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const originalText = btnText.textContent;
+            
+            // Показываем загрузку
+            btnText.textContent = '🔄 Отправка...';
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            
+            // Собираем данные
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                category: document.getElementById('category').value,
+                to_email: 'hereimage99@gmail.com'
+            };
+            
+            // Отправка
+            emailjs.send('service_zx2o5s9', 'template_am65uhb', templateParams)
+                .then(function(response) {
+                    showNotification('✅ Сообщение успешно отправлено! Скоро отвечу!', 'success');
+                    document.getElementById('contactForm').reset();
+                    updateCharCount(); // Сбрасываем счетчик
+                })
+                .catch(function(error) {
+                    console.error('Ошибка отправки:', error);
+                    showNotification('❌ Ошибка отправки. Попробуйте еще раз или напишите в Telegram', 'error');
+                })
+                .finally(function() {
+                    // Восстанавливаем кнопку
+                    btnText.textContent = originalText;
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                });
+        });
+
+        // Счетчик символов
+        function updateCharCount() {
+            const textarea = document.getElementById('message');
+            const counter = document.getElementById('charCount');
+            const count = textarea.value.length;
+            counter.textContent = count;
+            
+            if (count > 1000) {
+                counter.style.color = '#ff6b6b';
+            } else if (count > 800) {
+                counter.style.color = '#ffa726';
+            } else {
+                counter.style.color = 'var(--cosmic-text-secondary)';
+            }
+        }
+
+        document.getElementById('message').addEventListener('input', updateCharCount);
+
+        // FAQ аккордеон
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                
+                // Закрываем другие открытые FAQ
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                        otherItem.querySelector('.faq-toggle').textContent = '+';
+                    }
+                });
+                
+                // Переключаем текущий FAQ
+                item.classList.toggle('active');
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    toggle.textContent = '−';
+                } else {
+                    answer.style.maxHeight = null;
+                    toggle.textContent = '+';
+                }
+            });
+        });
+
+        // Функция уведомлений
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-icon">${type === 'success' ? '✅' : '❌'}</span>
+                    <span class="notification-text">${message}</span>
+                    <button class="notification-close">&times;</button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Авто-удаление через 5 секунд
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+            
+            // Закрытие по клику
+            notification.querySelector('.notification-close').addEventListener('click', () => {
+                notification.remove();
+            });
+        }
+
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCharCount();
+        });
+    </script>
 </body>
-
 </html>
-
-
-
