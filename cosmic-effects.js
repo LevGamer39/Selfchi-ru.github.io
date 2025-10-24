@@ -1,4 +1,4 @@
-// ����������� ������� � ��������
+// Космические эффекты и анимации
 class CosmicEffects {
     constructor() {
         this.particles = [];
@@ -15,7 +15,7 @@ class CosmicEffects {
         this.initOrbitalAnimations();
     }
 
-    // �������� ��������� ����
+    // Создание звездного поля
     createStars() {
         const starsContainer = document.querySelector('.stars');
         if (!starsContainer) return;
@@ -47,7 +47,7 @@ class CosmicEffects {
         }
     }
 
-    // �������� �����������
+    // Создание туманностей
     createNebulas() {
         const background = document.getElementById('cosmic-background');
         if (!background) return;
@@ -85,7 +85,7 @@ class CosmicEffects {
         }
     }
 
-    // �������� ���� ����������
+    // Создание поля астероидов
     createAsteroidField() {
         const background = document.getElementById('cosmic-background');
         if (!background) return;
@@ -117,7 +117,7 @@ class CosmicEffects {
         }
     }
 
-    // ������� ��� �������
+    // Эффекты при скролле
     initScrollEffects() {
         let ticking = false;
         
@@ -131,7 +131,7 @@ class CosmicEffects {
                 el.style.transform = `translateY(${yPos}px)`;
             });
             
-            // �������� ��������� ���������
+            // Анимация появления элементов
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
             animatedElements.forEach(el => {
                 const elementTop = el.getBoundingClientRect().top;
@@ -153,23 +153,23 @@ class CosmicEffects {
         };
         
         window.addEventListener('scroll', onScroll);
-        updateElements(); // ������������� ��� ��������
+        updateElements(); // Инициализация при загрузке
     }
 
-    // ������� ��� �������� ����
+    // Эффекты при движении мыши
     initMouseEffects() {
         document.addEventListener('mousemove', (e) => {
             this.createMouseTrail(e);
             this.updateParallax(e);
         });
         
-        // ���� ��� �������� ����
+        // Клик для создания волн
         document.addEventListener('click', (e) => {
             this.createRippleEffect(e);
         });
     }
 
-    // ���� �� ����
+    // След от мыши
     createMouseTrail(e) {
         const trail = document.createElement('div');
         trail.className = 'mouse-trail';
@@ -196,7 +196,7 @@ class CosmicEffects {
         }, 600);
     }
 
-    // ��������� ������ ��� ���������
+    // Параллакс эффект для элементов
     updateParallax(e) {
         const mouseX = e.clientX / window.innerWidth;
         const mouseY = e.clientY / window.innerHeight;
@@ -211,7 +211,7 @@ class CosmicEffects {
         });
     }
 
-    // ������ ���� ��� �����
+    // Эффект ряби при клике
     createRippleEffect(e) {
         const ripple = document.createElement('div');
         ripple.className = 'ripple-effect';
@@ -246,16 +246,71 @@ class CosmicEffects {
         }, 1000);
     }
 
-    // ����������� �������� ��� ���������
+    // Орбитальные анимации для спутников - ИСПРАВЛЕННЫЙ МЕТОД
     initOrbitalAnimations() {
         const satellites = document.querySelectorAll('.satellite');
+        
         satellites.forEach((satellite, index) => {
-            const animationDelay = index * 10;
-            satellite.style.animationDelay = `${animationDelay}s`;
+            // Убедимся, что спутники правильно позиционированы
+            satellite.style.cssText += `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200px;
+                animation: satellite-orbit 20s linear infinite;
+                transform-origin: center;
+            `;
+            
+            // Установим правильные задержки для спутников
+            if (satellite.id === 'music-satellite') {
+                satellite.style.animationDelay = '-10s';
+            } else {
+                satellite.style.animationDelay = '0s';
+            }
+            
+            // Добавим обработчик для перезапуска анимации при необходимости
+            satellite.addEventListener('animationiteration', () => {
+                // Перезапускаем анимацию если есть проблемы
+                if (!this.isAnimating(satellite)) {
+                    satellite.style.animation = 'none';
+                    setTimeout(() => {
+                        satellite.style.animation = `satellite-orbit 20s linear infinite ${satellite.style.animationDelay}`;
+                    }, 10);
+                }
+            });
         });
+        
+        // Добавим проверку анимации
+        this.startAnimationMonitoring();
     }
 
-    // �������� ������
+    // Проверка работает ли анимация
+    isAnimating(element) {
+        const style = window.getComputedStyle(element);
+        return style.animationName !== 'none' && style.animationPlayState === 'running';
+    }
+
+    // Мониторинг анимаций
+    startAnimationMonitoring() {
+        setInterval(() => {
+            const satellites = document.querySelectorAll('.satellite');
+            satellites.forEach(satellite => {
+                if (!this.isAnimating(satellite)) {
+                    console.log('Restarting animation for:', satellite.id);
+                    satellite.style.animation = 'none';
+                    setTimeout(() => {
+                        if (satellite.id === 'music-satellite') {
+                            satellite.style.animation = 'satellite-orbit 20s linear infinite -10s';
+                        } else {
+                            satellite.style.animation = 'satellite-orbit 20s linear infinite';
+                        }
+                    }, 10);
+                }
+            });
+        }, 5000); // Проверяем каждые 5 секунд
+    }
+
+    // Создание кометы
     createComet() {
         const background = document.getElementById('cosmic-background');
         if (!background) return;
@@ -285,22 +340,22 @@ class CosmicEffects {
         }, 8000);
     }
 
-    // ������ ��������� ����������� �������
+    // Запуск случайных космических событий
     startRandomEvents() {
-        // ��������� ������
+        // Случайные кометы
         setInterval(() => {
             if (Math.random() > 0.7) {
                 this.createComet();
             }
         }, 10000);
         
-        // ��������� ������� �����
+        // Случайные вспышки звезд
         setInterval(() => {
             this.createStarFlash();
         }, 3000);
     }
 
-    // �������� ������� ������
+    // Создание вспышки звезды
     createStarFlash() {
         const stars = document.querySelectorAll('.star');
         if (stars.length === 0) return;
@@ -312,14 +367,29 @@ class CosmicEffects {
             randomStar.style.animation = '';
         }, 500);
     }
+
+    // Метод для принудительного перезапуска орбитальных анимаций
+    restartOrbitalAnimations() {
+        const satellites = document.querySelectorAll('.satellite');
+        satellites.forEach(satellite => {
+            satellite.style.animation = 'none';
+            setTimeout(() => {
+                if (satellite.id === 'music-satellite') {
+                    satellite.style.animation = 'satellite-orbit 20s linear infinite -10s';
+                } else {
+                    satellite.style.animation = 'satellite-orbit 20s linear infinite';
+                }
+            }, 50);
+        });
+    }
 }
 
-// ������������� ����������� ��������
+// Инициализация космических эффектов
 document.addEventListener('DOMContentLoaded', function() {
     const cosmicEffects = new CosmicEffects();
     cosmicEffects.startRandomEvents();
     
-    // ���������� CSS ��������
+    // Добавление CSS анимаций
     const cosmicStyles = document.createElement('style');
     cosmicStyles.textContent = `
         @keyframes starTwinkle {
@@ -358,6 +428,16 @@ document.addEventListener('DOMContentLoaded', function() {
             100% { transform: translateX(calc(100vw + 200px)) translateY(200px); opacity: 0; }
         }
         
+        /* Ключевые кадры для орбитальных анимаций спутников */
+        @keyframes satellite-orbit {
+            0% {
+                transform: rotate(0deg) translateX(300px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg) translateX(300px) rotate(-360deg);
+            }
+        }
+        
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -372,6 +452,32 @@ document.addEventListener('DOMContentLoaded', function() {
         .mouse-parallax {
             transition: transform 0.1s ease-out;
         }
+        
+        /* Медиа-запросы для мобильных устройств */
+        @media (max-width: 768px) {
+            @keyframes satellite-orbit {
+                0% {
+                    transform: rotate(0deg) translateX(150px) rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+                }
+            }
+        }
     `;
     document.head.appendChild(cosmicStyles);
+
+    // Глобальная функция для перезапуска анимаций
+    window.restartSatelliteAnimations = () => {
+        cosmicEffects.restartOrbitalAnimations();
+    };
+});
+
+// Дополнительная защита от застревания анимаций
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        if (typeof window.restartSatelliteAnimations === 'function') {
+            window.restartSatelliteAnimations();
+        }
+    }, 1000);
 });
