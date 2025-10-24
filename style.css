@@ -222,7 +222,7 @@ h3 { font-size: 1.5rem; }
 
 /* Navigation */
 .cosmic-nav {
-    color: var(--cosmic-text);
+    color: var(--cosmic-accent);
     position: fixed;
     top: 0;
     left: 0;
@@ -3340,6 +3340,7 @@ h3 { font-size: 1.5rem; }
         margin-bottom: 0;
     }
 }
+
 
 
 
