@@ -2304,3 +2304,82 @@ body {
 .stat-fill[data-level="85"] { width: 85%; }
 .stat-fill[data-level="98"] { width: 98%; }
 .stat-fill[data-level="92"] { width: 92%; }
+
+/* Полный сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Базовые стили для текста */
+body {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e2e8f0;
+    background: #0a0a1a;
+    overflow-x: hidden;
+}
+
+/* Обеспечиваем правильную кодировку */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Убедимся, что русский текст отображается правильно */
+:lang(ru) {
+    quotes: "«" "»" "„" "“";
+}
+
+/* Стили для основных заголовков */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+h2 {
+    font-size: 2rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* Стили для навигации */
+.cosmic-nav {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.nav-logo {
+    font-weight: 700;
+}
+
+/* Принудительное применение шрифтов */
+.identity-title, .cosmic-title, .nav-logo, .info-title {
+    font-family: 'Orbitron', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+.identity-subtitle, .cosmic-subtitle, .nav-link {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+/* Анимация для проверки работы CSS */
+@keyframes testAnimation {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.test-load {
+    animation: testAnimation 2s ease-in-out;
+}
