@@ -3680,7 +3680,7 @@ h3 { font-size: 1.5rem; }
 .form-group textarea,
 .form-group select {
     padding: 1rem 1.2rem;
-    background: rgba(16, 16, 32, 0.6);
+    background: var(--cosmic-card);
     border: 2px solid var(--cosmic-border);
     border-radius: 12px;
     color: var(--cosmic-text);
@@ -3696,7 +3696,7 @@ h3 { font-size: 1.5rem; }
     outline: none;
     border-color: var(--cosmic-accent);
     box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1);
-    background: rgba(16, 16, 32, 0.8);
+    background: var(--cosmic-card);
 }
 
 .form-group textarea {
@@ -4126,6 +4126,7 @@ h3 { font-size: 1.5rem; }
         font-size: 1rem;
     }
 }
+
 
 
 
