@@ -2095,3 +2095,625 @@ h3 { font-size: 1.5rem; }
         gap: 0.5rem;
     }
 }
+/* Исправленные стили для главной страницы */
+
+.cosmic-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 80px 2rem 2rem;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid var(--cosmic-accent);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: var(--cosmic-accent);
+}
+
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.title-gradient {
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-neon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.title-accent {
+    color: var(--cosmic-text);
+    margin: 0 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--cosmic-accent);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--cosmic-text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cosmic-accent);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--cosmic-text-secondary);
+    margin-top: 0.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.cta-btn.primary {
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-neon));
+    color: var(--cosmic-dark);
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    border: 2px solid var(--cosmic-accent);
+    color: var(--cosmic-accent);
+}
+
+.cta-btn.outline {
+    background: transparent;
+    border: 2px solid var(--cosmic-border);
+    color: var(--cosmic-text);
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+}
+
+/* Исправленные стили для аватаров */
+.hero-avatars {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+}
+
+.avatar-card {
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-card.developer {
+    border-color: var(--cosmic-accent);
+}
+
+.avatar-card.musician {
+    border-color: var(--cosmic-neon);
+}
+
+.avatar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.avatar-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.avatar-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid transparent;
+    z-index: 2;
+}
+
+.avatar-card.developer .avatar-image {
+    border-color: var(--cosmic-accent);
+}
+
+.avatar-card.musician .avatar-image {
+    border-color: var(--cosmic-neon);
+}
+
+.avatar-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--cosmic-accent), var(--cosmic-neon), var(--cosmic-accent));
+    animation: rotate-glow 3s linear infinite;
+    z-index: -1;
+}
+
+.avatar-orbits {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid;
+    border-radius: 50%;
+    animation: orbit-rotate linear infinite;
+}
+
+.avatar-card.developer .orbit {
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.avatar-card.musician .orbit {
+    border-color: rgba(0, 255, 136, 0.3);
+}
+
+.orbit-1 {
+    width: 140px;
+    height: 140px;
+    animation-duration: 8s;
+}
+
+.orbit-2 {
+    width: 160px;
+    height: 160px;
+    animation-duration: 12s;
+    animation-direction: reverse;
+}
+
+.avatar-info {
+    text-align: center;
+}
+
+.avatar-info h3 {
+    color: var(--cosmic-text);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.avatar-info p {
+    color: var(--cosmic-text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.avatar-tech {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.avatar-tech span {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: var(--cosmic-accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--cosmic-text-secondary);
+    font-size: 0.9rem;
+}
+
+.scroll-arrow {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--cosmic-accent);
+    border-radius: 12px;
+    position: relative;
+}
+
+.scroll-arrow::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 8px;
+    background: var(--cosmic-accent);
+    border-radius: 2px;
+    animation: scroll-bounce 2s infinite;
+}
+
+/* Секция двойной идентичности */
+.dual-identity {
+    padding: 6rem 0;
+    background: rgba(5, 5, 16, 0.7);
+}
+
+.identity-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.identity-card {
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dev-card {
+    border-color: var(--cosmic-accent);
+}
+
+.music-card {
+    border-color: var(--cosmic-neon);
+}
+
+.identity-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.15);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+}
+
+.card-header h3 {
+    color: var(--cosmic-text);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.skill-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.skill-name {
+    color: var(--cosmic-text);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.skill-bar {
+    grid-column: 1 / -1;
+    height: 8px;
+    background: var(--cosmic-border);
+    border-radius: 4px;
+    overflow: hidden;
+    order: 2;
+}
+
+.skill-progress {
+    height: 100%;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dev-card .skill-progress {
+    background: linear-gradient(90deg, var(--cosmic-accent), var(--cosmic-neon));
+}
+
+.music-card .skill-progress {
+    background: linear-gradient(90deg, var(--cosmic-neon), #ff6b6b);
+}
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.skill-percent {
+    color: var(--cosmic-text-secondary);
+    font-weight: 600;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    order: 1;
+    text-align: right;
+}
+
+/* Остальные стили остаются как в предыдущем варианте */
+.featured-projects {
+    padding: 6rem 0;
+}
+
+.projects-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.project-card {
+    background: var(--cosmic-card);
+    border: 1px solid var(--cosmic-border);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card.featured {
+    border-color: var(--cosmic-neon);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+}
+
+.project-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--cosmic-neon);
+    color: var(--cosmic-dark);
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--cosmic-accent);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+}
+
+.project-card h3 {
+    color: var(--cosmic-text);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.project-card p {
+    color: var(--cosmic-text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-tech span {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: var(--cosmic-accent);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.project-link {
+    color: var(--cosmic-accent);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    gap: 1rem;
+}
+
+.projects-cta {
+    text-align: center;
+}
+
+.inspiration-quote {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 136, 0.05) 100%);
+    text-align: center;
+}
+
+.inspiration-quote blockquote {
+    font-size: 1.8rem;
+    color: var(--cosmic-text);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-style: italic;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inspiration-quote cite {
+    color: var(--cosmic-accent);
+    font-size: 1.1rem;
+    font-style: normal;
+}
+
+/* Анимации */
+@keyframes scroll-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+@keyframes orbit-rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Адаптивность */
+@media (max-width: 968px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+    }
+    
+    .identity-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .projects-showcase {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-stats {
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .identity-card {
+        padding: 1.5rem;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
