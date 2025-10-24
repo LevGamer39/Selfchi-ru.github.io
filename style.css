@@ -1,5 +1,9 @@
 /* Cosmic Theme Styles */
 :root {
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    user-drag: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -38,6 +42,10 @@
 }
 
 body {
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    user-drag: none;
     font-family: 'Rajdhani', sans-serif;
     background: var(--cosmic-dark);
     color: var(--cosmic-text);
@@ -2733,6 +2741,7 @@ h3 { font-size: 1.5rem; }
         gap: 0.5rem;
     }
 }
+
 
 
 
