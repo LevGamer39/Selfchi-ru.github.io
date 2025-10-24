@@ -296,4 +296,75 @@ function debounce(func, wait) {
 }
 
 // Экспорт функций для использования в других файлах
+
 window.showNotification = showNotification;
+// Мобильная навигация (скрытие при скролле)
+function initMobileNav() {
+    const nav = document.querySelector('.cosmic-nav');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateNav() {
+        const currentScrollY = window.scrollY;
+
+        // Проверяем ширину экрана, чтобы применять только на мобильных
+        if (window.innerWidth < 768) {
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Скролл вниз и проскроллили больше 100px - скрываем
+                nav.classList.add('nav-hidden');
+            } else {
+                // Скролл вверх - показываем
+                nav.classList.remove('nav-hidden');
+            }
+        } else {
+            // На десктопе всегда показываем
+            nav.classList.remove('nav-hidden');
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(updateNav);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll);
+
+    // Также скрываем навигацию при клике на ссылку на мобильных
+    if (window.innerWidth < 768) {
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.add('nav-hidden');
+                // Возвращаем навигацию через секунду
+                setTimeout(() => {
+                    nav.classList.remove('nav-hidden');
+                }, 1000);
+            });
+        });
+    }
+}
+
+// Обновляем вызов в DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация темы
+    initTheme();
+    
+    // Инициализация навигации
+    initNavigation();
+    
+    // Инициализация анимаций
+    initAnimations();
+    
+    // Инициализация аудио плееров
+    initAudioPlayers();
+    
+    // Инициализация космических эффектов
+    initCosmicEffects();
+    
+    // Инициализация мобильной навигации (скрытие при скролле)
+    initMobileNav();
+});
