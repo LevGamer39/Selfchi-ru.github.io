@@ -178,13 +178,22 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 <script>
-// Инициализируем EmailJS
-emailjs.init("MeqdtLSrmqvRV_5ci"); // Замените на ваш ключ
+// Инициализируем EmailJS с публичным ключом
+(function() {
+    emailjs.init("MeqdtLSrmqvRV_5ci"); // ЗАМЕНИТЕ на ваш публичный ключ
+})();
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const formData = {
+    // Показываем загрузку
+    const submitBtn = this.querySelector('.submit-btn');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '🔄 Отправка...';
+    submitBtn.disabled = true;
+    
+    // Собираем данные формы
+    const templateParams = {
         from_name: document.getElementById('name').value,
         from_email: document.getElementById('email').value,
         subject: document.getElementById('subject').value,
@@ -193,18 +202,40 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         to_email: 'hereimage99@gmail.com'
     };
     
-    showNotification('Сообщение отправляется...', 'info');
+    console.log('Отправка данных:', templateParams);
     
     // Отправляем email
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+    emailjs.send('service_zx2o5s9', 'template_am65uhb', templateParams)
         .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
             showNotification('✅ Сообщение успешно отправлено!', 'success');
             document.getElementById('contactForm').reset();
-        }, function(error) {
-            showNotification('❌ Ошибка отправки. Попробуйте еще раз.', 'error');
-            console.error('EmailJS error:', error);
+        })
+        .catch(function(error) {
+            console.error('FAILED...', error);
+            showNotification('❌ Ошибка отправки: ' + getErrorMessage(error), 'error');
+        })
+        .finally(function() {
+            // Восстанавливаем кнопку
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
         });
 });
+
+// Функция для понятных сообщений об ошибках
+function getErrorMessage(error) {
+    if (error.status === 0) {
+        return 'Нет подключения к интернету';
+    } else if (error.status === 400) {
+        return 'Неверные данные формы';
+    } else if (error.status === 401) {
+        return 'Ошибка авторизации. Проверьте настройки EmailJS';
+    } else if (error.status === 429) {
+        return 'Слишком много запросов. Попробуйте позже';
+    } else {
+        return 'Попробуйте еще раз';
+    }
+}
 
 function showNotification(message, type = 'info') {
     const existingNotifications = document.querySelectorAll('.notification');
@@ -248,7 +279,7 @@ function showNotification(message, type = 'info') {
     setTimeout(() => {
         notification.style.animation = 'slideOutRight 0.3s ease forwards';
         setTimeout(() => notification.remove(), 300);
-    }, 4000);
+    }, 5000);
 }
 
 // Добавляем CSS анимации
@@ -336,5 +367,6 @@ if (!document.querySelector('style#notification-animations')) {
 </body>
 
 </html>
+
 
 
