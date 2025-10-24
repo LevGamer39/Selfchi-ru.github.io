@@ -1,4 +1,4 @@
-﻿/* Cosmic Theme Styles */
+/* Cosmic Theme Styles */
 :root {
     --cosmic-primary: #6b46c1;
     --cosmic-secondary: #3182ce;
@@ -1333,4 +1333,436 @@ body {
     font-size: 2.5rem;
     color: var(--cosmic-neon);
     animation: fadeIn 0.3s ease 0.3s both;
+}
+
+/* About Page Styles */
+.about-hero {
+    padding: 120px 0 80px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 136, 0.05) 100%);
+    border-bottom: 1px solid var(--cosmic-border);
+}
+
+.about-hero-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-avatar {
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-frame {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    border: 3px solid var(--cosmic-accent);
+    padding: 8px;
+    background: var(--cosmic-card);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-frame::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-neon), var(--cosmic-accent));
+    border-radius: 22px;
+    z-index: -1;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.avatar-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.about-intro h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--cosmic-text);
+}
+
+.about-intro .accent {
+    color: var(--cosmic-accent);
+    margin: 0 0.5rem;
+}
+
+.about-intro .subtitle {
+    font-size: 1.4rem;
+    color: var(--cosmic-accent);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.about-intro .description {
+    font-size: 1.1rem;
+    color: var(--cosmic-text-secondary);
+    line-height: 1.6;
+}
+
+/* About Content */
+.about-content {
+    padding: 80px 0;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Essay Section */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-neon));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--cosmic-text-secondary);
+}
+
+.essay-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.essay-block {
+    background: var(--cosmic-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--cosmic-border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.essay-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.essay-block:hover::before {
+    left: 100%;
+}
+
+.essay-block:hover {
+    transform: translateY(-5px);
+    border-color: var(--cosmic-accent);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.essay-block h3 {
+    color: var(--cosmic-accent);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.essay-block p {
+    color: var(--cosmic-text);
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-card {
+    background: var(--cosmic-card);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--cosmic-border);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    border-color: var(--cosmic-accent);
+    transform: translateY(-3px);
+}
+
+.info-card h3 {
+    color: var(--cosmic-accent);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Stats */
+.stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--cosmic-border);
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-name {
+    color: var(--cosmic-text);
+    font-size: 0.95rem;
+}
+
+.stat-value {
+    color: var(--cosmic-neon);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Skills Tags */
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.skill-tag {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: var(--cosmic-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(0, 212, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Music Preferences */
+.music-preferences {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.preference-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.genre {
+    color: var(--cosmic-text);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.preference-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--cosmic-border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.preference-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cosmic-accent), var(--cosmic-neon));
+    border-radius: 3px;
+    transition: width 1s ease-in-out;
+}
+
+/* Contest Info */
+.contest-info {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 136, 0.05));
+    border: 2px solid var(--cosmic-accent);
+}
+
+.contest-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item strong {
+    color: var(--cosmic-text);
+    font-weight: 600;
+    min-width: 140px;
+}
+
+.detail-item span {
+    color: var(--cosmic-text-secondary);
+    text-align: right;
+    flex: 1;
+}
+
+/* Quote Section */
+.quote-section {
+    max-width: 800px;
+    margin: 4rem auto 0;
+    text-align: center;
+}
+
+.inspiration-quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--cosmic-text);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    background: var(--cosmic-card);
+    border-radius: 20px;
+    border: 1px solid var(--cosmic-border);
+    position: relative;
+}
+
+.inspiration-quote::before,
+.inspiration-quote::after {
+    content: '"';
+    font-size: 4rem;
+    color: var(--cosmic-accent);
+    position: absolute;
+    opacity: 0.3;
+}
+
+.inspiration-quote::before {
+    top: 10px;
+    left: 20px;
+}
+
+.inspiration-quote::after {
+    bottom: 10px;
+    right: 20px;
+}
+
+.quote-section cite {
+    color: var(--cosmic-accent);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 968px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .about-intro h1 {
+        font-size: 2.5rem;
+    }
+    
+    .essay-block {
+        padding: 2rem;
+    }
+    
+    .info-card {
+        padding: 1.5rem;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .detail-item strong {
+        min-width: auto;
+    }
+    
+    .detail-item span {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .about-intro h1 {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .essay-block {
+        padding: 1.5rem;
+    }
+    
+    .inspiration-quote {
+        font-size: 1.2rem;
+        padding: 1.5rem;
+    }
 }
