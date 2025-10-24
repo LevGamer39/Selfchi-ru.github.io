@@ -146,7 +146,7 @@
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Ваш Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
         </div>
@@ -161,10 +161,10 @@
         <div class="form-group">
             <label for="category">Категория</label>
             <select id="category" name="category">
-                <option value="programming">Программирование</option>
-                <option value="music">Музыка</option>
-                <option value="collaboration">Сотрудничество</option>
-                <option value="other">Другое</option>
+                <option value="Программирование">Программирование</option>
+                <option value="Музыка">Музыка</option>
+                <option value="Сотрудничество">Сотрудничество</option>
+                <option value="Другое">Другое</option>
             </select>
         </div>
         <button type="submit" class="cosmic-btn submit-btn">
@@ -178,63 +178,60 @@
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value,
-        category: document.getElementById('category').value
-    };
+    // Получаем данные из формы
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    const category = document.getElementById('category').value;
     
-    // Показываем уведомление о отправке
-    showNotification('Сообщение отправляется...', 'info');
+    // Формируем тему письма
+    const emailSubject = `[${category}] ${subject}`;
     
-    // Используем EmailJS или другую службу для отправки email
-    sendEmail(formData);
-});
+    // Формируем тело письма
+    const emailBody = `
+Имя: ${name}
+Email: ${email}
+Категория: ${category}
 
-function sendEmail(formData) {
-    // Вариант 1: Использование mailto (простой способ)
-    const subject = `[${formData.category.toUpperCase()}] ${formData.subject}`;
-    const body = `Имя: ${formData.name}%0AEmail: ${formData.email}%0A%0AСообщение:%0A${formData.message}`;
+Сообщение:
+${message}
+    `.trim();
     
-    window.location.href = `mailto:hereimage99@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Кодируем для URL
+    const encodedSubject = encodeURIComponent(emailSubject);
+    const encodedBody = encodeURIComponent(emailBody);
     
-    // Показываем успешное уведомление
+    // Создаем mailto ссылку
+    const mailtoLink = `mailto:hereimage99@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
+    
+    // Показываем уведомление
+    showNotification('Открывается почтовый клиент...', 'info');
+    
+    // Открываем почтовый клиент
     setTimeout(() => {
-        showNotification('Сообщение отправлено! Проверьте вашу почту.', 'success');
-        document.getElementById('contactForm').reset();
-    }, 1000);
-}
-
-// Альтернативный вариант с Formspree (более надежный)
-function sendEmailFormspree(formData) {
-    const form = document.getElementById('contactForm');
-    form.action = 'https://formspree.io/f/your-form-id'; // Замените на ваш Formspree ID
-    form.method = 'POST';
-    
-    // Добавляем скрытые поля
-    const hiddenEmail = document.createElement('input');
-    hiddenEmail.type = 'hidden';
-    hiddenEmail.name = '_replyto';
-    hiddenEmail.value = formData.email;
-    form.appendChild(hiddenEmail);
-    
-    const hiddenSubject = document.createElement('input');
-    hiddenSubject.type = 'hidden';
-    hiddenSubject.name = '_subject';
-    hiddenSubject.value = `[${formData.category}] ${formData.subject}`;
-    form.appendChild(hiddenSubject);
-    
-    form.submit();
-}
+        window.location.href = mailtoLink;
+        
+        // Очищаем форму после отправки
+        setTimeout(() => {
+            document.getElementById('contactForm').reset();
+            showNotification('Сообщение подготовлено для отправки!', 'success');
+        }, 1000);
+    }, 1500);
+});
 
 // Функция для показа уведомлений
 function showNotification(message, type = 'info') {
+    // Удаляем предыдущие уведомления
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
+    
     // Создаем элемент уведомления
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
+    
+    // Добавляем стили
     notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -246,32 +243,63 @@ function showNotification(message, type = 'info') {
         max-width: 400px;
         backdrop-filter: blur(10px);
         border: 1px solid;
-        background: ${type === 'success' ? 'rgba(0, 255, 136, 0.1)' : type === 'error' ? 'rgba(255, 107, 107, 0.1)' : 'rgba(0, 212, 255, 0.1)'};
-        border-color: ${type === 'success' ? 'var(--cosmic-neon)' : type === 'error' ? '#ff6b6b' : 'var(--cosmic-accent)'};
-        color: ${type === 'success' ? 'var(--cosmic-neon)' : type === 'error' ? '#ff6b6b' : 'var(--cosmic-accent)'};
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: 500;
     `;
+    
+    // Устанавливаем цвета в зависимости от типа
+    if (type === 'success') {
+        notification.style.background = 'rgba(0, 255, 136, 0.1)';
+        notification.style.borderColor = 'var(--cosmic-neon)';
+        notification.style.color = 'var(--cosmic-neon)';
+    } else if (type === 'error') {
+        notification.style.background = 'rgba(255, 107, 107, 0.1)';
+        notification.style.borderColor = '#ff6b6b';
+        notification.style.color = '#ff6b6b';
+    } else {
+        notification.style.background = 'rgba(0, 212, 255, 0.1)';
+        notification.style.borderColor = 'var(--cosmic-accent)';
+        notification.style.color = 'var(--cosmic-accent)';
+    }
     
     document.body.appendChild(notification);
     
-    // Удаляем уведомление через 5 секунд
+    // Удаляем уведомление через 4 секунды
     setTimeout(() => {
-        notification.style.animation = 'slideInRight 0.3s ease reverse';
+        notification.style.animation = 'slideOutRight 0.3s ease forwards';
         setTimeout(() => {
             if (notification.parentNode) {
                 notification.parentNode.removeChild(notification);
             }
         }, 300);
-    }, 5000);
+    }, 4000);
 }
 
-// Добавляем CSS анимацию для уведомлений, если её нет
-if (!document.querySelector('style#notification-styles')) {
+// Добавляем CSS анимации для уведомлений
+if (!document.querySelector('style#notification-animations')) {
     const style = document.createElement('style');
-    style.id = 'notification-styles';
+    style.id = 'notification-animations';
     style.textContent = `
         @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from { 
+                transform: translateX(100%); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateX(0); 
+                opacity: 1; 
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from { 
+                transform: translateX(0); 
+                opacity: 1; 
+            }
+            to { 
+                transform: translateX(100%); 
+                opacity: 0; 
+            }
         }
     `;
     document.head.appendChild(style);
@@ -345,3 +373,4 @@ if (!document.querySelector('style#notification-styles')) {
 </body>
 
 </html>
+
