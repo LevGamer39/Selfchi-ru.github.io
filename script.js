@@ -299,72 +299,55 @@ function debounce(func, wait) {
 
 window.showNotification = showNotification;
 // Мобильная навигация (скрытие при скролле)
-function initMobileNav() {
-    const nav = document.querySelector('.cosmic-nav');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    function updateNav() {
-        const currentScrollY = window.scrollY;
-
-        // Проверяем ширину экрана, чтобы применять только на мобильных
-        if (window.innerWidth < 768) {
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                // Скролл вниз и проскроллили больше 100px - скрываем
-                nav.classList.add('nav-hidden');
-            } else {
-                // Скролл вверх - показываем
-                nav.classList.remove('nav-hidden');
-            }
-        } else {
-            // На десктопе всегда показываем
-            nav.classList.remove('nav-hidden');
-        }
-
-        lastScrollY = currentScrollY;
-        ticking = false;
-    }
-
-    function onScroll() {
-        if (!ticking) {
-            requestAnimationFrame(updateNav);
-            ticking = true;
-        }
-    }
-
-    window.addEventListener('scroll', onScroll);
-
-    // Также скрываем навигацию при клике на ссылку на мобильных
-    if (window.innerWidth < 768) {
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.add('nav-hidden');
-                // Возвращаем навигацию через секунду
-                setTimeout(() => {
-                    nav.classList.remove('nav-hidden');
-                }, 1000);
-            });
+function initTheme() {
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    
+    // Установка сохраненной темы
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeToggle(savedTheme);
+    
+    // Обработчик переключения темы
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeToggle(newTheme);
+            
+            // Анимация переключения
+            createThemeTransition();
+            
+            // Принудительное обновление стилей навигации
+            updateNavStyles(newTheme);
         });
     }
 }
 
-// Обновляем вызов в DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Инициализация темы
-    initTheme();
+// Функция для обновления стилей навигации при смене темы
+function updateNavStyles(theme) {
+    const nav = document.querySelector('.cosmic-nav');
+    if (!nav) return;
     
-    // Инициализация навигации
-    initNavigation();
-    
-    // Инициализация анимаций
-    initAnimations();
-    
-    // Инициализация аудио плееров
-    initAudioPlayers();
-    
-    // Инициализация космических эффектов
-    initCosmicEffects();
-    
-    // Инициализация мобильной навигации (скрытие при скролле)
-    initMobileNav();
-});
+    // Небольшая задержка для применения CSS переменных
+    setTimeout(() => {
+        if (theme === 'light') {
+            nav.style.background = 'rgba(240, 244, 248, 0.95)';
+            nav.style.borderBottom = '1px solid rgba(100, 116, 139, 0.3)';
+        } else {
+            nav.style.background = 'rgba(10, 10, 26, 0.95)';
+            nav.style.borderBottom = '1px solid var(--cosmic-border)';
+        }
+    }, 10);
+}
+
+function updateThemeToggle(theme) {
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.textContent = theme === 'dark' ? '🌙' : '☀️';
+        themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Переключить на светлую тему' : 'Переключить на темную тему');
+    }
+}
+
