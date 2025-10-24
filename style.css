@@ -316,11 +316,30 @@ body {
     to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-.satellite {
+/* Исправленные стили для спутников и планеты */
+.hero-orbit {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.orbit-path {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border: 2px dashed rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+    animation: orbit-rotate 30s linear infinite;
+}
+
+.satellite {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 200px;
     animation: satellite-orbit 20s linear infinite;
 }
@@ -340,6 +359,137 @@ body {
     100% {
         transform: translate(-50%, -50%) rotate(360deg) translateX(300px) rotate(-360deg);
     }
+}
+
+@keyframes orbit-rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Центральная планета */
+.central-planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.planet-core {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, #667eea, #764ba2);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    position: relative;
+    box-shadow: 0 0 60px rgba(102, 126, 234, 0.6);
+    animation: planet-pulse 4s ease-in-out infinite;
+}
+
+.planet-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.4), transparent 70%);
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.planet-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(0, 212, 255, 0.5);
+    border-radius: 50%;
+    animation: ring-rotate linear infinite;
+}
+
+.ring-1 {
+    width: 180px;
+    height: 180px;
+    animation-duration: 20s;
+}
+
+.ring-2 {
+    width: 240px;
+    height: 240px;
+    animation-duration: 25s;
+    animation-direction: reverse;
+}
+
+.ring-3 {
+    width: 300px;
+    height: 300px;
+    animation-duration: 30s;
+}
+
+@keyframes ring-rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes planet-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.planet-info {
+    margin-top: 2rem;
+}
+
+.planet-info h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--cosmic-accent);
+}
+
+.planet-info p {
+    color: var(--cosmic-text-secondary);
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+}
+
+/* Запасной контент для аватаров */
+.avatar-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 50%;
+}
+
+.cosmic-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: none; /* Скрываем по умолчанию */
+}
+
+.cosmic-avatar img[src] {
+    display: block; /* Показываем только если есть src */
 }
 
 .satellite-content {
@@ -1766,3 +1916,4 @@ body {
         padding: 1.5rem;
     }
 }
+
