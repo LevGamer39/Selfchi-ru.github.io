@@ -137,42 +137,146 @@
                 </div>
 
                 <!-- Форма обратной связи -->
-                <div class="contact-form-section">
-                    <h2>Отправить сообщение</h2>
-                    <form class="cosmic-form" id="contactForm">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="name">Ваше имя</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Тема</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Сообщение</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="category">Категория</label>
-                            <select id="category" name="category">
-                                <option value="programming">Программирование</option>
-                                <option value="music">Музыка</option>
-                                <option value="collaboration">Сотрудничество</option>
-                                <option value="other">Другое</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="cosmic-btn submit-btn">
-                            <span class="btn-glow"></span>
-                            Отправить в космос
-                        </button>
-                    </form>
-                </div>
+<div class="contact-form-section">
+    <h2>Отправить сообщение</h2>
+    <form class="cosmic-form" id="contactForm">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="subject">Тема</label>
+            <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Сообщение</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="category">Категория</label>
+            <select id="category" name="category">
+                <option value="programming">Программирование</option>
+                <option value="music">Музыка</option>
+                <option value="collaboration">Сотрудничество</option>
+                <option value="other">Другое</option>
+            </select>
+        </div>
+        <button type="submit" class="cosmic-btn submit-btn">
+            <span class="btn-glow"></span>
+            Отправить в космос
+        </button>
+    </form>
+</div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+        category: document.getElementById('category').value
+    };
+    
+    // Показываем уведомление о отправке
+    showNotification('Сообщение отправляется...', 'info');
+    
+    // Используем EmailJS или другую службу для отправки email
+    sendEmail(formData);
+});
+
+function sendEmail(formData) {
+    // Вариант 1: Использование mailto (простой способ)
+    const subject = `[${formData.category.toUpperCase()}] ${formData.subject}`;
+    const body = `Имя: ${formData.name}%0AEmail: ${formData.email}%0A%0AСообщение:%0A${formData.message}`;
+    
+    window.location.href = `mailto:hereimage99@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Показываем успешное уведомление
+    setTimeout(() => {
+        showNotification('Сообщение отправлено! Проверьте вашу почту.', 'success');
+        document.getElementById('contactForm').reset();
+    }, 1000);
+}
+
+// Альтернативный вариант с Formspree (более надежный)
+function sendEmailFormspree(formData) {
+    const form = document.getElementById('contactForm');
+    form.action = 'https://formspree.io/f/your-form-id'; // Замените на ваш Formspree ID
+    form.method = 'POST';
+    
+    // Добавляем скрытые поля
+    const hiddenEmail = document.createElement('input');
+    hiddenEmail.type = 'hidden';
+    hiddenEmail.name = '_replyto';
+    hiddenEmail.value = formData.email;
+    form.appendChild(hiddenEmail);
+    
+    const hiddenSubject = document.createElement('input');
+    hiddenSubject.type = 'hidden';
+    hiddenSubject.name = '_subject';
+    hiddenSubject.value = `[${formData.category}] ${formData.subject}`;
+    form.appendChild(hiddenSubject);
+    
+    form.submit();
+}
+
+// Функция для показа уведомлений
+function showNotification(message, type = 'info') {
+    // Создаем элемент уведомления
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        z-index: 10000;
+        animation: slideInRight 0.3s ease;
+        max-width: 400px;
+        backdrop-filter: blur(10px);
+        border: 1px solid;
+        background: ${type === 'success' ? 'rgba(0, 255, 136, 0.1)' : type === 'error' ? 'rgba(255, 107, 107, 0.1)' : 'rgba(0, 212, 255, 0.1)'};
+        border-color: ${type === 'success' ? 'var(--cosmic-neon)' : type === 'error' ? '#ff6b6b' : 'var(--cosmic-accent)'};
+        color: ${type === 'success' ? 'var(--cosmic-neon)' : type === 'error' ? '#ff6b6b' : 'var(--cosmic-accent)'};
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Удаляем уведомление через 5 секунд
+    setTimeout(() => {
+        notification.style.animation = 'slideInRight 0.3s ease reverse';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 5000);
+}
+
+// Добавляем CSS анимацию для уведомлений, если её нет
+if (!document.querySelector('style#notification-styles')) {
+    const style = document.createElement('style');
+    style.id = 'notification-styles';
+    style.textContent = `
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+}
+</script>
 
                 <!-- FAQ -->
                 <div class="faq-section">
@@ -239,4 +343,5 @@
     <script src="cosmic-effects.js"></script>
     <script src="contact-form.js"></script>
 </body>
+
 </html>
